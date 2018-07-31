@@ -2,7 +2,7 @@
   <strong>Result:</strong>
   <%# <%= @lotto %> 
 
-  <p> 1등 당첨자는 <%= @firstwinner %> 입니다. 축하합니다! </p> 
+  <p> 1등 당첨자는 <%= @lotto.firstwinner %> 입니다. 축하합니다! </p> 
   <p> 2등 당첨자는 <%= @secondwinner %> 입니다. 축하합니다! </p> 
   <p> 3등 당첨자는 <%= @thirdwinner %> 입니다. 축하합니다! </p> 
   <p> 4등 당첨자는 <%= @fourthwinner %> 입니다. 축하합니다! </p> 
@@ -10,6 +10,8 @@
 
   <p> 당첨자는 <%= @firstwinner %>, <%= @secondwinner %>, <%= @thirdwinner %>, <%= @fourthwinner %>, <%= @fifthwinner %> 입니다. 축하합니다! </p>
 
-  
+  <p> <%= (1..@lotto.totalnum.to_i).to_a.sample(5).sort.to_a[0] %>  </p>
+
+
 
 </h1>

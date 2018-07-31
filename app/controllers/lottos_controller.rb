@@ -17,13 +17,13 @@ class LottosController < ApplicationController
   # GET /lottos/1.json
   def show
     @array = (1..@lotto.totalnum.to_i).to_a
-    @lotto = @array.sample(5).sort.to_a
+    @result = @array.sample(5).sort.to_a
     
-    @firstwinner = Voter.find_by(id: @lotto[0].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
-    @secondwinner = Voter.find_by(id: @lotto[1].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
-    @thirdwinner = Voter.find_by(id: @lotto[2].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
-    @fourthwinner = Voter.find_by(id: @lotto[3].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
-    @fifthwinner = Voter.find_by(id: @lotto[4].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @lotto.firstwinner = Voter.find_by(id: @result[0].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @secondwinner = Voter.find_by(id: @result[1].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @thirdwinner = Voter.find_by(id: @result[2].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @fourthwinner = Voter.find_by(id: @result[3].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @fifthwinner = Voter.find_by(id: @result[4].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
 
   end
 
@@ -40,6 +40,16 @@ class LottosController < ApplicationController
   # POST /lottos.json
   def create
     @lotto = Lotto.new(lotto_params)
+  
+
+    @array = (1..@lotto.totalnum.to_i).to_a
+    @lottoresult = @array.sample(5).sort.to_a
+    
+    @lotto.firstwinner = Voter.find_by(id: @result[0].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @secondwinner = Voter.find_by(id: @result[1].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @thirdwinner = Voter.find_by(id: @result[2].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @fourthwinner = Voter.find_by(id: @result[3].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @fifthwinner = Voter.find_by(id: @result[4].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
 
     respond_to do |format|
       if @lotto.save
@@ -84,6 +94,6 @@ class LottosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lotto_params
-      params.require(:lotto).permit(:totalnum, :winnum, :result)
+      params.require(:lotto).permit(:totalnum, :winnum, :result, :firstwinner)
     end
 end
