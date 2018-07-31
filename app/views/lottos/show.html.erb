@@ -1,19 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Totalnum:</strong>
-  <%= @lotto.totalnum %>
-</p>
-
-<p>
-  <strong>Winnum:</strong>
-  <%= @lotto.winnum %>
-</p>
-
-<p>
+<h1>  
   <strong>Result:</strong>
-  <%= @result %>
-</p>
+  <%# <%= @lotto %> 
 
-<%= link_to 'Edit', edit_lotto_path(@lotto) %> |
-<%= link_to 'Back', lottos_path %>
+  <p> 1등 당첨자는 <%= @firstwinner %> 입니다. 축하합니다! </p> 
+  <p> 2등 당첨자는 <%= @secondwinner %> 입니다. 축하합니다! </p> 
+  <p> 3등 당첨자는 <%= @thirdwinner %> 입니다. 축하합니다! </p> 
+  <p> 4등 당첨자는 <%= @fourthwinner %> 입니다. 축하합니다! </p> 
+  <p> 5등 당첨자는 <%= @fifthwinner %> 입니다. 축하합니다! </p> 
+
+  <p> 당첨자는 <%= @firstwinner %>, <%= @secondwinner %>, <%= @thirdwinner %>, <%= @fourthwinner %>, <%= @fifthwinner %> 입니다. 축하합니다! </p>
+
+  
+
+</h1>

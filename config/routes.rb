@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  resources :voters
   resources :lottos
   devise_for :admins
   devise_for :users
 
-  get '/random' => 'home#lotto' 
+  get '/random' => 'lottos#new' 
 
-  get 'home/lotto'
-  post 'home/create'
+  #get 'home/lotto'
+  #post 'home/result'
+  #get 'home/result'
 
   root 'home#index'
   

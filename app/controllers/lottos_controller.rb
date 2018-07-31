@@ -16,11 +16,15 @@ class LottosController < ApplicationController
   # GET /lottos/1
   # GET /lottos/1.json
   def show
-    @totalnum = params[:totalnum]
-    @winnum = params[:winnum]
+    @array = (1..@lotto.totalnum.to_i).to_a
+    @lotto = @array.sample(5).sort.to_a
+    
+    @firstwinner = Voter.find_by(id: @lotto[0].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @secondwinner = Voter.find_by(id: @lotto[1].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @thirdwinner = Voter.find_by(id: @lotto[2].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @fourthwinner = Voter.find_by(id: @lotto[3].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    @fifthwinner = Voter.find_by(id: @lotto[4].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
 
-    @array = (1..@totalnum.to_i).to_a
-    @result = @array.sample(@winnum.to_i).sort.to_s
   end
 
   # GET /lottos/new
