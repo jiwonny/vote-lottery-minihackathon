@@ -16,6 +16,11 @@ class LottosController < ApplicationController
   # GET /lottos/1
   # GET /lottos/1.json
   def show
+    @totalnum = params[:totalnum]
+    @winnum = params[:winnum]
+
+    @array = (1..@totalnum.to_i).to_a
+    @result = @array.sample(@winnum.to_i).sort.to_s
   end
 
   # GET /lottos/new

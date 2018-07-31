@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
 
-  get '/random' => 'lottos#new' 
+  get '/random' => 'home#lotto' 
+
+  get 'home/lotto'
+  post 'home/create'
 
   root 'home#index'
   

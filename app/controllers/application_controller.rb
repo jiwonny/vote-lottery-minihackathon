@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  #protect_from_forgery with: :exception
 
   ## 로그인 후 페이지그대로
   # saves the location before loading each page so we can return to the right page. 
