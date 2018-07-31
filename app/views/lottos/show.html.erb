@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Totalnum:</strong>
+  <%= @lotto.totalnum %>
+</p>
+
+<p>
+  <strong>Winnum:</strong>
+  <%= @lotto.winnum %>
+</p>
+
+<p>
+  <strong>Result:</strong>
+  <%= @lotto.result %>
+</p>
+
+<%= link_to 'Edit', edit_lotto_path(@lotto) %> |
+<%= link_to 'Back', lottos_path %>

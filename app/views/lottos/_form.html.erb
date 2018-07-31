@@ -1,0 +1,32 @@
+<%= form_for(lotto) do |f| %>
+  <% if lotto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lotto.errors.count, "error") %> prohibited this lotto from being saved:</h2>
+
+      <ul>
+      <% lotto.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :totalnum %>
+    <%= f.number_field :totalnum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :winnum %>
+    <%= f.number_field :winnum %>
+  </div>
+
+  <div class="field">
+    <%= f.label :result %>
+    <%= f.text_area :result %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
