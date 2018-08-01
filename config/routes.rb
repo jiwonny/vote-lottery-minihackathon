@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :users
   resources :vote_logs
+  resources :pledges
   get 'home/index'
+  root 'home#index'
 
   get '/random' => 'lottos#new' 
 

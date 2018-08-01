@@ -1,0 +1,29 @@
+<body class="container">
+  <p id="notice"><%= notice %></p>
+ 
+  <table>
+    <td><%= image_tag("#{@pledge.image}", style: "height:30%; width: auto;") %></td>
+  </table>
+
+  <p>
+    <strong>Q1. 안녕하세요! 1줄 소개 부탁드릴께요 ^^</strong>
+  </p>
+
+  <p>
+    <%= @pledge.title %>
+  </P>
+
+  <p>
+    <strong>Q2. 어떠한 공약들을 가지고 계신가요??</strong>
+  </p>
+
+  <p>
+    <%= @pledge.content %>
+  </p>
+</body>
+
+<footer class="navbar fixed-bottom navbar-light bg-light">
+  <%= link_to '수정', edit_pledge_path(@pledge) %> |
+  <%= link_to '삭제', @pledge, method: :delete, data: { confirm: '관리자님 지우시겠어요?' } %> |
+  <%= link_to '뒤로가기', pledges_path %> 
+</footer>

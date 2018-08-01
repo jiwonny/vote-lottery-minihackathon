@@ -1,0 +1,10 @@
+<body class="container">
+  <p id="notice"><%= notice %></p>
+  <h1 style = "text-align: center;">이번에는 어떠한 공약들이 있을까요??</h1>
+  <% @pledges.each do |pledge| %>
+    <table>
+      <td><%= link_to image_tag("#{pledge.image}", style: "height:30%; width: auto;"), pledge %></td>
+    </table>
+  <% end %>
+  <%= link_to '공약 추가하기!', new_pledge_path %>
+</body>
