@@ -16,14 +16,13 @@ class LottosController < ApplicationController
   # GET /lottos/1
   # GET /lottos/1.json
   def show
-    for k in 0..@lotto.winnum.to_i
-      instance_variable_set "@winner_#{k}" , Voter.where(id: $result[k]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')
-    end   
+   ## 임시코드 xxx
+    #for k in 0..@lotto.winnum.to_i
+    #  instance_variable_set "@winner_#{k}" , Voter.where(id: $result[k]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')
+    #end   
 
-    #테스트 코드 xxx
+   ##테스트 코드 xxx
     #@firstwinner = Voter.where(id: $result[0]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')
-    #@secondwinner = Voter.where(id: $result[1]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')
-    #@thirdwinner = Voter.where(id: $result[2]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')
   end
 
   # GET /lottos/new
@@ -39,23 +38,25 @@ class LottosController < ApplicationController
   # POST /lottos.json
   def create
     @lotto = Lotto.new(lotto_params)
-    @array = (1..@lotto.totalnum.to_i).to_a
+
+    $resultt = []
+    while $resultt.count < @lotto.winnum.to_i 
+      $index = rand(1..Voter.all.count).to_i
+      r= Voter.where(id: $index).pluck(:studentid).to_s
+      $resultt.append(r)
+    end
+    $resultt.uniq!  #중복값아닌지 확실히 확인!
+
+  # 임시코드
+    #@array = (1..Voter.all.count).to_a
+    #$result = @array.sample(@lotto.winnum.to_i).sort
   
-  # 추첨배열을 저장
-    $result = @array.sample(@lotto.winnum.to_i).sort
-
-  # 당첨자를 저장 xxx
-   # @result = @array.sample(5).sort.to_a
-   # @lotto.firstwinner = Voter.find_by(id: @result[1].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
-
   # 테스트코드 xxx
     #auto_arrays = Array.new
     #while auto_arrays.size < @lotto.winnum
     #  auto_arrays << @array.sample
     #end
     #auto_arrays.uniq!
-   
-    #@auto_array = auto_arrays
 
     respond_to do |format|
       if @lotto.save
