@@ -3,13 +3,23 @@
   <head>
     <title>VoteEvent</title>
     <%= csrf_meta_tags %>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= render "layouts/header" %>
+    <%# <%= render "layouts/header" %>
+    <nav class="navbar">
+    <a class="headerfont" href="index">
+      고려대학교 51대 총학생회:<br>
+      2019 선거 로또
+    </a>
+    <i class="fas fa-align-justify"></i>
+</nav>
     <%= yield %>
   </body>
 </html>

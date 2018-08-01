@@ -5,6 +5,8 @@ class VoteLogsController < ApplicationController
   # GET /vote_logs.json
   def index
     @vote_logs = VoteLog.all
+    @num = @vote_logs.length
+    puts "#{@num}"
   end
 
   # GET /vote_logs/1
