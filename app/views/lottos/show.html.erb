@@ -1,9 +1,8 @@
 <h1><strong>당첨자명단:</strong><h1>
 
 <p>
-  <%# <% for k in 0...@lotto.winnum <%= instance_variable_get("@winner_#{k}")<% end  %>
   축하합니다~~~~~~~~~~~~~~~~~~~~~~~~ㅎㅎㅎ <br>
-  <% for k in 0..$result.size %>
-    <%= $resultt[k]%><br>
+  <% for n in 0..@lotto.winnum.to_i %>
+    <%= $winnerarray[n] %><br>
   <% end %> 
 </p>

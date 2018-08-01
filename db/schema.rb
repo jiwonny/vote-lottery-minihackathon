@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20180801033952) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-ActiveRecord::Schema.define(version: 20180730035836) do
 
   create_table "vote_logs", force: :cascade do |t|
     t.string   "studentID"

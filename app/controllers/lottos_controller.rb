@@ -39,18 +39,16 @@ class LottosController < ApplicationController
   def create
     @lotto = Lotto.new(lotto_params)
 
-    $resultt = []
-    while $resultt.count < @lotto.winnum.to_i 
-      $index = rand(1..Voter.all.count).to_i
-      r= Voter.where(id: $index).pluck(:studentid).to_s
-      $resultt.append(r)
+    @array = (1..VoteLog.all.count).to_a
+    $idarray = @array.sample(@lotto.winnum.to_i).sort
+    $winnerarray = []
+    #while $winnerarray.count < @lotto.winnum.to_i 
+    #  $index = @array.sample()
+    for n in 0...@lotto.winnum.to_i
+      r= VoteLog.where(id: $idarray[n]).pluck(:studentid).to_s.gsub('[','').gsub(']','')
+      $winnerarray.append(r)
     end
-    $resultt.uniq!  #중복값아닌지 확실히 확인!
 
-  # 임시코드
-    #@array = (1..Voter.all.count).to_a
-    #$result = @array.sample(@lotto.winnum.to_i).sort
-  
   # 테스트코드 xxx
     #auto_arrays = Array.new
     #while auto_arrays.size < @lotto.winnum
