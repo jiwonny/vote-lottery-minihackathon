@@ -16,31 +16,14 @@ class LottosController < ApplicationController
   # GET /lottos/1
   # GET /lottos/1.json
   def show
-    @result = @lotto.result
-    @array = (1..@lotto.totalnum.to_i).to_a   
-    
-    #[index]를 +3씩 해줘야함 create액션 주석참고
-    @firstwinner = Voter.find_by(id: @result[1].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
-    @secondwinner = Voter.find_by(id: @result[4].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
-    @thirdwinner = Voter.find_by(id: @result[7].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
-    @fourthwinner = Voter.find_by(id: @result[10].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
-    @fifthwinner = Voter.find_by(id: @result[13].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
+    for k in 0..@lotto.winnum.to_i
+      instance_variable_set "@winner_#{k}" , Voter.where(id: $result[k]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')
+    end   
 
-
-    ## 테스트코드..
-    auto_arrays = Array.new
-    while auto_arrays.size < @lotto.winnum
-      auto_arrays << @array.sample
-    end
-    auto_arrays.uniq!
-
-    @auto_array = auto_arrays
-
-    #for n in 0..@lotto.winnum.to_i
-    #  instance_variable_set "@lot_#{n}" , @array.sample
-    #end   
-
-   
+    #테스트 코드 xxx
+    #@firstwinner = Voter.where(id: $result[0]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')
+    #@secondwinner = Voter.where(id: $result[1]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')
+    #@thirdwinner = Voter.where(id: $result[2]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')
   end
 
   # GET /lottos/new
@@ -58,22 +41,21 @@ class LottosController < ApplicationController
     @lotto = Lotto.new(lotto_params)
     @array = (1..@lotto.totalnum.to_i).to_a
   
-  # 추첨배열을 저장, 대신 string으로 저장된다. index주의
-    @lotto.result = @array.sample(5).sort
-    #@lotto.result =@array.sample(@lotto.winnum.to_i).sort
+  # 추첨배열을 저장
+    $result = @array.sample(@lotto.winnum.to_i).sort
 
   # 당첨자를 저장 xxx
    # @result = @array.sample(5).sort.to_a
    # @lotto.firstwinner = Voter.find_by(id: @result[1].to_i).attributes.slice('studentid').to_s.gsub('{"studentid"=>','').gsub('}','')
 
-  ## 테스트코드..
-    auto_arrays = Array.new
-    while auto_arrays.size < @lotto.winnum
-      auto_arrays << @array.sample
-    end
-    auto_arrays.uniq!
+  # 테스트코드 xxx
+    #auto_arrays = Array.new
+    #while auto_arrays.size < @lotto.winnum
+    #  auto_arrays << @array.sample
+    #end
+    #auto_arrays.uniq!
    
-    @auto_array = auto_arrays
+    #@auto_array = auto_arrays
 
     respond_to do |format|
       if @lotto.save

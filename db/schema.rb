@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180731193407) do
+ActiveRecord::Schema.define(version: 20180801033952) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180731193407) do
     t.datetime "updated_at",                       null: false
     t.string   "firstwinner"
     t.text     "resultnum",   default: "--- []\n"
+    t.text     "lotarray"
   end
 
   create_table "pledges", force: :cascade do |t|

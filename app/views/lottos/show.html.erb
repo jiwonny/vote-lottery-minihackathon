@@ -1,24 +1,8 @@
-<h1>  
-  <strong>Result:</strong>
+<h1><strong>당첨자명단:</strong><h1>
 
-  <p> 1등 당첨자는 <%= @firstwinner %> 입니다. 축하합니다! </p> 
-  <p> 2등 당첨자는 <%= @secondwinner %> 입니다. 축하합니다! </p> 
-  <p> 3등 당첨자는 <%= @thirdwinner %> 입니다. 축하합니다! </p> 
-  <p> 4등 당첨자는 <%= @fourthwinner %> 입니다. 축하합니다! </p> 
-  <p> 5등 당첨자는 <%= @fifthwinner %> 입니다. 축하합니다! </p> 
-
-  <p> 당첨자는 <%= @firstwinner %>, <%= @secondwinner %>, <%= @thirdwinner %>, <%= @fourthwinner %>, <%= @fifthwinner %> 입니다. 축하합니다! </p>
-
-  <p> <%= @lotto.result %> </p>
-  <p> <%=@lotto.winnum %> </p>
-
-  <p> 
-  <%# for n in 0..@lotto.winnum.to_i %>
-  <%#= instance_variable_get("@lot_#{n}") %>
-  <%# end %>
-  </p>
-
-  <p> <%= @lotto.resultnum %> </p>
-
-
-</h1>
+<p>
+  <% for k in 0...@lotto.winnum %>
+    <%= instance_variable_get("@winner_#{k}") %><br>
+  <% end %> 
+  축하합니다~~~~~~~~~~~~~~~~~~~~~~~~ㅎㅎㅎ
+</p>
