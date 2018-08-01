@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :lottos
   devise_for :admins
   devise_for :users
+  resources :vote_logs
+  get 'home/index'
 
   get '/random' => 'lottos#new' 
 
