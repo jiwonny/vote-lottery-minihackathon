@@ -10,6 +10,15 @@
   <p> 당첨자는 <%= @firstwinner %>, <%= @secondwinner %>, <%= @thirdwinner %>, <%= @fourthwinner %>, <%= @fifthwinner %> 입니다. 축하합니다! </p>
 
   <p> <%= @lotto.result %> </p>
+  <p> <%=@lotto.winnum %> </p>
+
+  <p> 
+  <%# for n in 0..@lotto.winnum.to_i %>
+  <%#= instance_variable_get("@lot_#{n}") %>
+  <%# end %>
+  </p>
+
+  <p> <%= @lotto.resultnum %> </p>
 
 
 </h1>
