@@ -18,24 +18,25 @@
   </div>
 </div>
 
-<%# congetti 테스트 코드 %>
-<div class="container col-center">
+<%# confetti 테스트 코드 %>
+<div class="container col-center" id="confetti">
   <canvas id="canvas"></canvas>
 </div>
 
 <style>
 canvas {
   position: absolute;
-  height: 95%;
+  margin-left: 60px;
   bottom: 0;
   width: 85%;
 }
+
 </style>
 
 <script>
   const canvasEl = document.querySelector('#canvas');
 
-  const w = canvasEl.width = window.innerWidth;
+  const w = canvasEl.width = window.innerWidth ;
   const h = canvasEl.height = window.innerHeight * 2;
 
   function loop() {
