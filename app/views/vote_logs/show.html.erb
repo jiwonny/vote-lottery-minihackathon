@@ -17,5 +17,23 @@
   <%= @vote_log.image %>
 </p>
 
+
+
+
+
+
+<%= link_to 'Destroy', @vote_log, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_vote_log_path(@vote_log) %> |
 <%= link_to 'Back', vote_logs_path %>
+
+
+<!--지울 때 비밀번호 맞는지 확인!
+
+var pwd = prompt("응모할 때 입력한 비밀번호를 입력하세요", "Harry Potter");
+
+if (pwd != null) {
+    document.getElementById("demo").innerHTML =
+    "Hello " + person + "! How are you today?";
+}
+
+-->
