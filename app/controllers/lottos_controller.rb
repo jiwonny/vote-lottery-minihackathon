@@ -16,6 +16,7 @@ class LottosController < ApplicationController
   # GET /lottos/1
   # GET /lottos/1.json
   def show
+    $total = VoteLog.all.count
    ## 임시코드 xxx
     #for k in 0..@lotto.winnum.to_i
     #  instance_variable_set "@winner_#{k}" , Voter.where(id: $result[k]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')

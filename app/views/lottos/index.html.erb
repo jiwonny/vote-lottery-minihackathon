@@ -1,29 +1,30 @@
-<div class="container">
-
-<table>
-  <tbody>
-    <% @lottos.each do |lotto| %>
-      <tr>
-        <td><%= link_to 'Show', lotto %></td>
-        <td><%= link_to 'Destroy', lotto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'New Lotto', new_lotto_path %>
+<div class="container" id="timer">
+<%# <table> %>
+  <%# <tbody> %>
+    <%# <% @lottos.each do |lotto| %> 
+      <%# <tr> %>
+        <%# <td><%= link_to 'Show', lotto %>
+        <%# <td><%= link_to 'Destroy', lotto, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%# <% end %> 
+  <%# </tbody> %>
+<%# </table> %>
 
 <!--타이머-->
 <div class="countdown">
   <ul id="example">
+    <li class="title"> 결과 발표까지 </li> <br><br>
     <li><span id="days"></span><p class="days_text">Days</p></li>
     <li class="seperator">:</li>
     <li><span id="hours"></span><p class="hours_text">Hours</p></li>
     <li class="seperator">:</li>
     <li><span id="minutes"></span><p class="minutes_text">Minutes</p></li>
     <li class="seperator">:</li>
-    <li><span id="seconds"></span><p class="seconds_text">Seconds</p></li>
+    <li><span id="seconds"></span><p class="seconds_text">Seconds</p></li> <br>
+    <li class="title"> 남았습니다. </li> <br><br><br><br>
+    <li><button type="button" class="btn btn-outline-dark"><a href="/lottos/new"style="color:gray">페이스북 실시간 추첨 확인하러가기</button> </li>
   </ul>
 </div>
+
 
 </div>
 
@@ -60,5 +61,6 @@ var x = setInterval(function() {
     clearInterval(x);
     document.getElementById("example").innerHTML = "당첨 확인하러가기";
   }
+
 }, 1000);
 </script>
