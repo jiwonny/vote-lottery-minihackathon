@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/random' => 'lottos#new' 
-
   #get 'home/lotto'
   #post 'home/result'
   #get 'home/result'
@@ -17,5 +16,6 @@ Rails.application.routes.draw do
   root 'home#index'
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'  
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
