@@ -48,43 +48,6 @@
     </div>
     </div>
 
-    <%# -------참여방법소개 끝----------- %>
-    <div class="my-4 d-flex justify-content-center">
-      <button type="button" class="btn btn-secondary">응모하러 가기</button>
-    </div>
-  <p id="notice"><%= notice %></p>
-
-  <h1>Vote Logs</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Studentid</th>
-        <th>Name</th>
-        <th>Image</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @vote_logs.each do |vote_log| %>
-        <tr>
-          <td><%= vote_log.studentID %></td>
-          <td><%= vote_log.name %></td>
-          <td><%= vote_log.image %></td>
-          <td><%= link_to 'Show', vote_log %></td>
-          <td><%= link_to 'Edit', edit_vote_log_path(vote_log) %></td>
-          <td><%= link_to 'Destroy', vote_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-
-  <%= link_to 'New Vote Log', new_vote_log_path %>
-</div>
-
 <script>
   function numberCounter(target_frame, target_number) {
     this.count = 0; this.diff = 0;
@@ -115,3 +78,240 @@ new numberCounter("counter1", votenum);
 
 
 </script>
+
+ <%# 공약테스트 부분 임시로 추가// 같은 코드 home#quizcard에 있움 %>
+<h1>블라인드 공약 테스트</h1>
+<div class="quiz-container">
+  <div id="quiz"></div>
+</div>
+<button id="previous">previous</button> <button id="next">next</button>
+<button id="submit">Submit Quiz</button>
+<div id="results"></div>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
+
+body{
+    font-size: 20px;
+    font-family: 'Work Sans', sans-serif;
+    color: #333;
+    font-weight: 300;
+}
+h1{
+  font-weight: 300;
+  margin: 0px;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #444;
+  color: #fff;
+   text-align: center;
+}
+.question{
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.answers {
+  margin-bottom: 20px;
+  text-align: left;
+  display: inline-block;
+}
+.answers label{
+  display: block;
+  margin-bottom: 10px;
+}
+button{
+  font-family: 'Work Sans', sans-serif;
+    font-size: 22px;
+    background-color: #279;
+    color: #fff;
+    border: 0px;
+    border-radius: 3px;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+button:hover{
+    background-color: #38a;
+}
+
+.slide{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.active-slide{
+  opacity: 1;
+  z-index: 2;
+}
+.quiz-container{
+  position: relative;
+  height: 200px;
+  margin-top: 40px;
+    background-color: #f8f6f0;
+      text-align: center;
+}
+</style>
+
+<script>
+(function() {
+  const myQuestions = [
+    { //문제수는 편의상 홀수개로 해주세요!
+      question: "Who is the strongest?",
+      answers: {
+        a: "Superman", 
+        b: "The Terminator", 
+      },
+      candidateA: "a" //수정1 correctanswer이름으 candidatea로바꿈
+    },
+    {
+      question: "What is the best site ever created?",
+      answers: {
+        a: "SitePoint", 
+        b: "Simple Steps Code",
+      },
+      candidateA: "b"
+    },
+    {
+      question: "Where is Waldo really?",
+      answers: {
+        a: "Antarctica",
+        b: "Exploring the Pacific Ocean",
+      },
+      candidateA: "b"
+    }
+  ];
+
+  function buildQuiz() {
+    // we'll need a place to store the HTML output
+    const output = [];
+
+    // for each question...
+    myQuestions.forEach((currentQuestion, questionNumber) => {
+      // we'll want to store the list of answer choices
+      const answers = [];
+
+      // and for each available answer...
+      for (letter in currentQuestion.answers) {
+        // ...add an HTML radio button
+        answers.push(
+          `<label>
+             <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+           </label>`
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        `<div class="slide">
+           <div class="question"> ${currentQuestion.question} </div>
+           <div class="answers"> ${answers.join("")} </div>
+         </div>`
+      );
+    });
+
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = output.join("");
+  }
+
+  function showResults() {
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll(".answers");
+
+    // keep track of user's answers
+    let numA = 0; //수정2 numCorrect 이름을 numA로 변경
+    //수정3
+    let numB = 0;
+
+    // for each question...
+    myQuestions.forEach((currentQuestion, questionNumber) => {
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if (userAnswer === currentQuestion.candidateA) {
+        // add to the number of correct answers
+        numA++;
+
+        // color the answers green
+        //answerContainers[questionNumber].style.color = "lightgreen";
+        //수정4
+        //answerContainers[questionNumber].innerHTML +="후보1 정책입니다.";
+        answerContainers[questionNumber].style.color = "lightgreen";        
+       
+      } else {
+        // if answer is wrong or blank
+        //수정5
+        numB++;
+        // color the answers red 수정6
+        answerContainers[questionNumber].style.color = "red";
+      }
+    });
+
+    // show number of correct answers out of total
+    // resultsContainer.innerHTML = `${numA} out of ${myQuestions.length}`;
+    // 수정7
+    if(numA>numB){
+      resultsContainer.innerHTML =  numA + '/' + myQuestions.length + '후보1 정책을 더 선호합니다.';
+    }
+    else{
+      resultsContainer.innerHTML = numB + '/' + myQuestions.length + '후보2 정책을 더 선호합니다' ;
+    }
+  }
+
+  function showSlide(n) {
+    slides[currentSlide].classList.remove("active-slide");
+    slides[n].classList.add("active-slide");
+    currentSlide = n;
+    
+    if (currentSlide === 0) {
+      previousButton.style.display = "none";
+    } else {
+      previousButton.style.display = "inline-block";
+    }
+    
+    if (currentSlide === slides.length - 1) {
+      nextButton.style.display = "none";
+      submitButton.style.display = "inline-block";
+    } else {
+      nextButton.style.display = "inline-block";
+      submitButton.style.display = "none";
+    }
+  }
+
+  function showNextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  const quizContainer = document.getElementById("quiz");
+  const resultsContainer = document.getElementById("results");
+  const submitButton = document.getElementById("submit");
+
+  // display quiz right away
+  buildQuiz();
+
+  const previousButton = document.getElementById("previous");
+  const nextButton = document.getElementById("next");
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  showSlide(0);
+
+  // on submit, show results
+  submitButton.addEventListener("click", showResults);
+  previousButton.addEventListener("click", showPreviousSlide);
+  nextButton.addEventListener("click", showNextSlide);
+})();
+</script>
+
