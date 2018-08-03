@@ -1,5 +1,14 @@
-<h1>New Lotto</h1>
 
-<%= render 'form', lotto: @lotto %>
+<div class="container-fluid">    
+  <div class="row content">
+    
+    <div class="container">
+      <div class="titlel">당첨자 발표</div> 
+    </div>
 
-<%= link_to 'Back', lottos_path %>
+    <div class="col-8 col-md-10 col-center m-auto text-center">
+    <%= render 'form', lotto: @lotto %>
+    </div>
+
+  </div>
+</div> 

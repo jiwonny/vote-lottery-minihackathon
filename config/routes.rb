@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  resources :voters
   resources :lottos
   devise_for :admins
   devise_for :users
   resources :vote_logs
   resources :pledges
-  get 'home/index'
+  get '/index' => 'home#index'
   root 'home#index'
 
   get '/random' => 'lottos#new' 
