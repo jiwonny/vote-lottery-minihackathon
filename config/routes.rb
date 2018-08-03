@@ -17,7 +17,15 @@ Rails.application.routes.draw do
   root 'home#index'   
   get '/faq' => 'home#faq'
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin' # merge할 때 제일 마지막줄에 위치하게 해주세요!!
+  
  
+
+
+
+  post 'vote_logs/checkDouble' => 'vote_logs#checkDouble'
+ 
+  get 'home/index'
+  get 'home/faq'
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin' # merge할 때 제일 마지막줄에 위치하게 해주세요!!
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,49 +1,28 @@
-    <%# 현재 투표율 %>
-    <div class="votenum_box d-flex justify-content-center">
-      <div class="votenum_text">
-        투표와 함께하는 즐거움<br>
-        실시간 로또 참여인수
-        <%# 투표 인원수 %>
-        <p id="counter1"></p>
-        <button type="button" class="btn btn-outline-secondary btn_vote">응모하기</button>
-      </div>
-      
-    </div>
-    <div class="container">
-    <%# --------------참여방법 소개---------------- %>
-    
-    <%# -------참여방법소개 끝----------- %>
+<%# 현재 투표율 %>
+<div class="votenum_box d-flex justify-content-center">
+  <div class="votenum_text">
+    투표와 함께하는 즐거움<br>
+    실시간 로또 참여인수
+    <%# 투표 인원수 %>
+    <p id="counter1"></p>
+    <button type="button" class="btn btn-outline-secondary btn_vote">응모하기</button>
+  </div>
+  
+</div>
+<div class="container">
+<%# --------------참여방법 소개---------------- %>
+
+<%# -------참여방법소개 끝----------- %>
   <p id="notice"><%= notice %></p>
 
   <h1>Vote Logs</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Studentid</th>
-        <th>Name</th>
-        <th>Image</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <%= link_to '응모하기', new_vote_log_path %>
 
-    <tbody>
-      <% @vote_logs.each do |vote_log| %>
-        <tr>
-          <td><%= vote_log.studentID %></td>
-          <td><%= vote_log.name %></td>
-          <td><%= vote_log.image %></td>
-          <td><%= link_to 'Show', vote_log %></td>
-          <td><%= link_to 'Edit', edit_vote_log_path(vote_log) %></td>
-          <td><%= link_to 'Destroy', vote_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% @vote_logs.each do |vote_log| %>
+  <%= image_tag vote_log.image %>
+  <% end %>
 
-  <br>
-
-  <%= link_to 'New Vote Log', new_vote_log_path %>
 </div>
 
 <script>
@@ -53,26 +32,27 @@
     this.target_frame = document.getElementById(target_frame);
     this.timer = null;
     this.counter();
-};
-    numberCounter.prototype.counter = function() {
-        var self = this;
-        this.diff = this.target_count - this.count;
-    
-        if(this.diff > 0) {
-            self.count += Math.ceil(this.diff / 5);
-        }
-    
-        this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    
-        if(this.count < this.target_count) {
-            this.timer = setTimeout(function() { self.counter(); }, 100);
-        } else {
-            clearTimeout(this.timer);
-        }
-    };
+  };
+  numberCounter.prototype.counter = function() {
+      var self = this;
+      this.diff = this.target_count - this.count;
+  
+      if(this.diff > 0) {
+          self.count += Math.ceil(this.diff / 5);
+      }
+  
+      this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  
+      if(this.count < this.target_count) {
+          this.timer = setTimeout(function() { self.counter(); }, 100);
+      } else {
+          clearTimeout(this.timer);
+      }
+  };
 var votenum = '<%=@num%>';
 
 new numberCounter("counter1", votenum);
 
-
 </script>
+<%#= link_to 'New Vote Log', new_vote_log_path %>
+
