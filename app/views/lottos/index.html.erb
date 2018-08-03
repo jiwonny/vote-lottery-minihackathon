@@ -1,31 +1,66 @@
-<p id="notice"><%= notice %></p>
+<div class="container" id="timer">
+<%# <table> %>
+  <%# <tbody> %>
+    <%# <% @lottos.each do |lotto| %> 
+      <%# <tr> %>
+        <%# <td><%= link_to 'Show', lotto %>
+        <%# <td><%= link_to 'Destroy', lotto, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%# <% end %> 
+  <%# </tbody> %>
+<%# </table> %>
 
-<h1>Lottos</h1>
+<!--타이머-->
+<div class="countdown">
+  <ul id="example">
+    <li class="title"> 결과 발표까지 </li> <br><br>
+    <li><span id="days"></span><p class="days_text">Days</p></li>
+    <li class="seperator">:</li>
+    <li><span id="hours"></span><p class="hours_text">Hours</p></li>
+    <li class="seperator">:</li>
+    <li><span id="minutes"></span><p class="minutes_text">Minutes</p></li>
+    <li class="seperator">:</li>
+    <li><span id="seconds"></span><p class="seconds_text">Seconds</p></li> <br>
+    <li class="title"> 남았습니다. </li> <br><br><br><br>
+    <li><button type="button" class="btn btn-outline-dark"><a href="/lottos/new"style="color:gray">페이스북 실시간 추첨 확인하러가기</button> </li>
+  </ul>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Totalnum</th>
-      <th>Winnum</th>
-      <th>Result</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @lottos.each do |lotto| %>
-      <tr>
-        <td><%= lotto.totalnum %></td>
-        <td><%= lotto.winnum %></td>
-        <td><%= lotto.result %></td>
-        <td><%= link_to 'Show', lotto %></td>
-        <td><%= link_to 'Edit', edit_lotto_path(lotto) %></td>
-        <td><%= link_to 'Destroy', lotto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+</div>
 
-<br>
 
-<%= link_to 'New Lotto', new_lotto_path %>
+<!--countdown용 js-->
+<script>
+var countDownDate = new Date("August 5, 2018 12:00:00").getTime();
+// Update the count down every 1 second
+var x = setInterval(function() {
+  // Get todays date and time
+  var now = new Date().getTime();
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor(distance % (1000 * 60 * 60 * 24) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // 숫자 두자리수로 만들기
+  function numFormat(variable) 
+    { variable = Number(variable).toString(); 
+      if(Number(variable) < 10 && variable.length == 1) 
+        variable = "0" + variable; 
+      return variable; 
+    }
+
+  document.getElementById("days").innerHTML = numFormat(days);
+  document.getElementById("hours").innerHTML = numFormat(hours);
+  document.getElementById("minutes").innerHTML = numFormat(minutes);
+  document.getElementById("seconds").innerHTML = numFormat(seconds);
+  // If the count down is finished, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("example").innerHTML = "당첨 확인하러가기";
+  }
+
+}, 1000);
+</script>
