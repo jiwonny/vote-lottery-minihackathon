@@ -12,7 +12,8 @@ gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'figaro'
- 
+gem 'kaminari'
+
 gem 'bootstrap', '~> 4.1.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'

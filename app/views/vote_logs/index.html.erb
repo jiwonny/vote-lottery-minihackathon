@@ -5,7 +5,7 @@
     실시간 로또 참여인수
     <%# 투표 인원수 %>
     <p id="counter1"></p>
-    <button type="button" class="btn btn-outline-secondary btn_vote">응모하기</button>
+    <%= button_to "응모하기", new_vote_log_path, :class => "btn btn-outline-secondary btn_vote", :method => :get %>
   </div>
   
 </div>
@@ -15,13 +15,17 @@
 <%# -------참여방법소개 끝----------- %>
   <p id="notice"><%= notice %></p>
 
-  <h1>Vote Logs</h1>
+  <%#= link_to '응모하기', new_vote_log_path %>
+  
+  <div class="images">
+    <div class="row justify-content-between">
+      <% @vote_logs.each do |vote_log| %>
+      <%= image_tag vote_log.image , class: "vote_img"%>
+    <% end %>
+    </div>
+  </div>
 
-  <%= link_to '응모하기', new_vote_log_path %>
-
-  <% @vote_logs.each do |vote_log| %>
-  <%= image_tag vote_log.image %>
-  <% end %>
+  <%= paginate @vote_logs %>
 
 </div>
 
@@ -44,7 +48,7 @@
       this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   
       if(this.count < this.target_count) {
-          this.timer = setTimeout(function() { self.counter(); }, 100);
+          this.timer = setTimeout(function() { self.counter(); }, 800);
       } else {
           clearTimeout(this.timer);
       }
