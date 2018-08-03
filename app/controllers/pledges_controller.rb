@@ -28,7 +28,7 @@ class PledgesController < ApplicationController
 
     respond_to do |format|
       if @pledge.save
-        format.html { redirect_to @pledge, notice: 'Pledge was successfully created.' }
+        format.html { redirect_to @pledge, notice: '제작완료 되었습니다!' }
         format.json { render :show, status: :created, location: @pledge }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PledgesController < ApplicationController
   def update
     respond_to do |format|
       if @pledge.update(pledge_params)
-        format.html { redirect_to @pledge, notice: 'Pledge was successfully updated.' }
+        format.html { redirect_to @pledge, notice: '성공적으로 업데이트되었습니다!' }
         format.json { render :show, status: :ok, location: @pledge }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class PledgesController < ApplicationController
   def destroy
     @pledge.destroy
     respond_to do |format|
-      format.html { redirect_to pledges_url, notice: 'Pledge was successfully destroyed.' }
+      format.html { redirect_to pledges_url, notice: '성공적으로 삭제되었습니다!' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class PledgesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pledge_params
-      params.require(:pledge).permit(:title, :content, :image)
+      params.require(:pledge).permit(:title, :content, :content2, :image)
     end
 end

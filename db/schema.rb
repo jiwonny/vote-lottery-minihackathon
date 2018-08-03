@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20180801165004) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"
+    t.text     "content2"
   end
 
   create_table "school_dbs", force: :cascade do |t|
