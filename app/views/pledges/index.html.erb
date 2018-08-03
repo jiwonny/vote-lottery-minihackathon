@@ -1,0 +1,90 @@
+<HTML>
+  <HEAD>
+  <!-- jQuery를 사용하려면 아래 코드 한 줄을 반드시 추가해야한다. -->
+  <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script>
+  $(document).ready(function(){
+      $("#spreadBtn").click(function(){
+          if($("#hiddenList").is(":visible")){
+              $("#hiddenList").slideUp();
+          }else{
+              $("#hiddenList").slideDown();
+          }
+      });
+  });
+  $(document).ready(function(){
+      $("#spreadBtn2").click(function(){
+          if($("#hiddenList2").is(":visible")){
+              $("#hiddenList2").slideUp();
+          }else{
+              $("#hiddenList2").slideDown();
+          }
+      });
+  });
+  $(document).ready(function(){
+      $("#spreadBtn3").click(function(){
+          if($("#hiddenList3").is(":visible")){
+              $("#hiddenList3").slideUp();
+          }else{
+              $("#hiddenList3").slideDown();
+          }
+      });
+  });
+  </script>
+  <style>
+    ul {
+      list-style: none;
+      }
+  </style>
+  </HEAD>
+ 
+  <BODY>
+    <p id="notice"><%= notice %></p>
+    <h1 style = "text-align: center;">고려대학교 00대 총학생회:2019 선거 로또</h1>
+    <% @pledges.each do |pledge| %>
+      <table>
+        <td><%= link_to image_tag("#{pledge.image}", style: "height:auto; width: 100%;"), pledge %></td>
+      </table>
+    <% end %>
+    <%= link_to '공약 변경/수정하기', new_pledge_path%>
+
+    <div class="container">
+      <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
+      <p id="spreadBtn" class="btn01" style="font-size: 40px">교류</p>
+      <div id="hiddenList" class="example01 shadow p-3 mb-5 bg-light rounded container" style="display: none; font-size: 20px">
+        <p> 하나된 우리들의 학생사회_교류! </p>
+        <ul>
+          <li>2018 교류 사업 기획 및 운영 - 동계 교류 행사, 하계 교류 행사!</li>
+          <li>오프라인 소통 강화</li>
+          <li>사발식 문화에 대한 내부 토론 활성화</li>
+          <li>편입생 및 외국인 학생과의 교류 확대 확대</li>
+        </ul>
+      </div>
+
+      <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
+      <p id="spreadBtn2" class="btn02" style="font-size: 40px">연대</p>
+      <div id="hiddenList2" class="example02 shadow p-3 mb-5 bg-light rounded container" style="display: none; font-size: 20px">
+        <p> 함께라면 가능한_연대! </p>
+        <ul>
+          <li>총장 직선제 요구</li>
+          <li>대학생 근로문제 해결</li>
+          <li>청소/주차/경비 노동자오의 연대</li>
+        </ul>
+      </div>
+
+      <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
+      <p id="spreadBtn3" class="btn03" style="font-size: 40px">인권</p>
+      <div id="hiddenList3" class="example03 shadow p-3 mb-5 bg-light rounded" style="display: none; font-size: 20px">
+        <p> 일상 속에 스며드는_인권! </p>
+        <ul>
+          <li>월별 인권 프로젝트 - 여성 '월경권' 보장, 장애학생 수업권 확보</li>
+          <li>성폭행 사건 피해자 보호방안 강구 및 가해자 처벌 강화</li>
+          <li>양성평등센터 및 인권센터 개선</li>
+          <li>교원윤리규정 개정 요구</li>
+          <li>화장실 몰래카메라 전수조사 정례화</li>
+          <li>인권침해사건 사료연구집 제작</li>      
+        </ul>
+      </div>
+  </div>
+  </BODY>
+</HTML>

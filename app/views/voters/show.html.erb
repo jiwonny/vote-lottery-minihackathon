@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @voter.name %>
+</p>
+
+<p>
+  <strong>Studentid:</strong>
+  <%= @voter.studentid %>
+</p>
+
+<p>
+  <strong>Phonenum:</strong>
+  <%= @voter.phonenum %>
+</p>
+
+<%= link_to 'Edit', edit_voter_path(@voter) %> |
+<%= link_to 'Back', voters_path %>

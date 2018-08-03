@@ -1,4 +1,6 @@
-@import 'bootstrap';
+@import "bootstrap";
+//------------------header--------------------
+
 
 @font-face { font-family: 'WONTitle'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/WONTitle.woff') format('woff'); font-weight: normal; font-style: normal; }
 
@@ -6,6 +8,112 @@
 
 @font-face { font-family: 'GyeonggiBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
 
+
+//------------------header 끝-----------------
+
+
+//------------------main-----------------------
+.votenum_box{
+    width: 100%;
+    height: 200px;
+    background-color: #F1F1F1;
+    align-items: center;
+}
+
+.votenum_text{
+    color: #707070;
+    text-align: center;
+    font-size: 22px;
+}
+
+//인원수 counter
+#counter1{
+    font-size: 25px;
+    font-weight: 500;
+
+}
+
+.btn_vote{
+    margin-top: -24px;
+    background-color: white;
+}
+
+
+//----------------main 끝-------------------
+
+//----------------참여방법 소개 css----------------
+
+.howto_img_box{
+    height: 110.5px;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.howto_img{
+    height: 100%;
+    width: 100%;
+
+}
+
+.howto_bar{
+    width: 40px;
+    height: 1px;
+    background-color: #A13030;
+    margin-bottom: 10.5px;
+}
+
+.howto_text_title{
+    font-size: 20px;
+}
+
+
+
+
+.howto_image{
+    width:100px;
+    height:100px;
+}
+
+.howto_text{
+    padding-left: 10px;
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.howto_box{
+    margin: 15px;
+    display: flex;
+}
+
+.max_cont{
+    display: block;
+}
+
+@media screen and (min-width: 760px){
+    .max_cont{
+        display: flex;
+        justify-content: space-around;
+    }
+    .howto_box{
+        height: 260px;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: 150px;
+        display: inline-block;
+    }
+    .howto_text{
+        padding-left: 0px;
+        text-align: center;
+    }
+    .howto_image{
+        width: 100%;
+        height: 160px;
+    }
+}
+
+//--------------참여방법 소개 css 끝---------------
+
+//--------------navbar-----------------------
 .headerfont{
     font-family: "WONTitle";
     font-size: 20px;
@@ -32,6 +140,7 @@
     line-height: 18px;
 }
 
+//--------top 버튼---------------
 .scrollToTop{
     font-family: "NanumSquareround";
     width:100px; 
@@ -50,3 +159,14 @@
 .scrollToTop:hover{
     text-decoration:none;
 }
+
+//------------스크롤--------------
+html{
+    -webkit-overflow-scrolling : touch;
+}
+
+::-webkit-scrollbar {width: 12px; height: 12px;  }
+::-webkit-scrollbar-button:start:decrement, 
+::-webkit-scrollbar-button:end:increment {display: block; width: 12px;height: 12px; background: url() rgba(0,0,0,.05);}
+::-webkit-scrollbar-track {     background: rgba(0,0,0,.05); }
+::-webkit-scrollbar-thumb {  background: rgba(0,0,0,.1);  }

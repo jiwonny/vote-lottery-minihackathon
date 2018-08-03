@@ -1,0 +1,2 @@
+class VoteLog < ApplicationRecord
+end

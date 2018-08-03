@@ -1,53 +1,48 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-  <script>
-    $(document).ready(function(){
-    //Check to see if the window is top if not then display button
-        $(window).scroll(function(){
-            if ($(this).scrollTop() > 100) {
-                $('.scrollToTop').fadeIn();
-            } else {
-                $('.scrollToTop').fadeOut();
-            }
-        });
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script>
+      $(document).ready(function(){
+      //Check to see if the window is top if not then display button
+          $(window).scroll(function(){
+              if ($(this).scrollTop() > 100) {
+                  $('.scrollToTop').fadeIn();
+              } else {
+                  $('.scrollToTop').fadeOut();
+              }
+          });
 
-    //Click event to scroll to top
-    $('.scrollToTop').click(function(){
-        $('html, body').animate({scrollTop : 0},800);
-        return false;
-        });
-    });
-    jQuery(function($) {
-        $("body").css("display", "none");
-        $("body").fadeIn(2000);
-        $("a.transition").click(function(event){
-        event.preventDefault();
-        linkLocation = this.href;
-        $("body").fadeOut(1000, redirectPage);
-        });
-        function redirectPage() {
-        window.location = linkLocation;
-        }
-    });
-  </script>
+      //Click event to scroll to top
+      $('.scrollToTop').click(function(){
+          $('html, body').animate({scrollTop : 0},800);
+          return false;
+          });
+      });
+      jQuery(function($) {
+          $("body").css("display", "none");
+          $("body").fadeIn(2000);
+          $("a.transition").click(function(event){
+          event.preventDefault();
+          linkLocation = this.href;
+          $("body").fadeOut(1000, redirectPage);
+          });
+          function redirectPage() {
+          window.location = linkLocation;
+          }
+      });
+    </script>
 </head>
-<body>
 
-
-
-<br>
-<br>
 <nav class="navbar navbar-light">
-  <a class="navbar-brand headerfont" href="#">고려대학교 제51대 총학생회 :<br>2019 선거 로또</a>
+  <a class="navbar-brand headerfont" href="/">고려대학교 제51대 총학생회 :<br>2019 선거 로또</a>
   <button id="humbug" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-expanded="false">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -57,59 +52,20 @@
       <br>
       <li class="nav-item">
         <div class="line"></div>
-        <a class="nav-link" href="#">어떻게 참여하나요?</a>
+        <a class="nav-link" href="/vote_logs">어떻게 참여하나요?</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">공약을 확인하세요!</a>
+        <a class="nav-link" href="/pledges">공약을 확인하세요!</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">결과를 확인하세요!</a>
+        <a class="nav-link" href="/lottos">결과를 확인하세요!</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="home/faq">궁금한 게 있어요!</a>
+        <a class="nav-link" href="/faq">궁금한 게 있어요!</a>
       </li>       
     </ul>
   </div>  
 </nav>
 
-<div class="container-fluid">
-  <h3>Collapsible Navbar</h3>
-  <p>Click on th button in the top right corner to reveal the navigation links.</p>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <<h3>Collapsible Navbar</h3>3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
 
-  <h3>Collapsible Navbar</h3>
-  <h3>Collapsible Navbar</h3>
-
-</div>
-
-<br>
-<br>
-<a href="#" class="scrollToTop">Top</a>
-<br>
-<br>
-<br>
+<%# <a href="#" class="scrollToTop">Top</a> %>

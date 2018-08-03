@@ -1,0 +1,117 @@
+    <%# 현재 투표율 %>
+    <div class="votenum_box d-flex justify-content-center">
+      <div class="votenum_text">
+        투표와 함께하는 즐거움<br>
+        실시간 로또 참여인수
+        <%# 투표 인원수 %>
+        <p id="counter1"></p>
+        <button type="button" class="btn btn-outline-secondary btn_vote">응모하기</button>
+      </div>
+      
+    </div>
+    <div class="container">
+    <%# --------------참여방법 소개---------------- %>
+    <h3>"어떻게 참여하나요?"</h3>
+    <br>
+    <div class="max_cont">
+    <div class="howto_box">
+      <div class="imgbox">
+        <%=image_tag "voting.jpg", class:"howto_image"%>
+      </div>
+      <div class="howto_text">
+        선거를 즐기는 사진을 찍으세요!
+        -투표소가 배경인 사진
+        -선거 현장의 생생한 사진
+      </div>
+    </div>
+
+    <div class="howto_box">
+      <div class="imgbox">
+        <%=image_tag "voting.jpg", class:"howto_image"%>
+      </div>
+      <div class="howto_text">
+        응모는 선거날에 가능하며
+        1인 1투표를 위하여
+        인증이 필요합니다.
+      </div>
+    </div>
+
+    <div class="howto_box">
+      <div class="imgbox">
+        <%=image_tag "voting.jpg", class:"howto_image"%>
+      </div>
+      <div class="howto_text">
+        사진과 이름, 학번을 등록하여
+        응모하면 끝!
+        ..
+      </div>
+    </div>
+    </div>
+
+    <%# -------참여방법소개 끝----------- %>
+    <div class="my-4 d-flex justify-content-center">
+      <button type="button" class="btn btn-secondary">응모하러 가기</button>
+    </div>
+  <p id="notice"><%= notice %></p>
+
+  <h1>Vote Logs</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Studentid</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @vote_logs.each do |vote_log| %>
+        <tr>
+          <td><%= vote_log.studentID %></td>
+          <td><%= vote_log.name %></td>
+          <td><%= vote_log.image %></td>
+          <td><%= link_to 'Show', vote_log %></td>
+          <td><%= link_to 'Edit', edit_vote_log_path(vote_log) %></td>
+          <td><%= link_to 'Destroy', vote_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Vote Log', new_vote_log_path %>
+</div>
+
+<script>
+  function numberCounter(target_frame, target_number) {
+    this.count = 0; this.diff = 0;
+    this.target_count = parseInt(target_number);
+    this.target_frame = document.getElementById(target_frame);
+    this.timer = null;
+    this.counter();
+};
+    numberCounter.prototype.counter = function() {
+        var self = this;
+        this.diff = this.target_count - this.count;
+    
+        if(this.diff > 0) {
+            self.count += Math.ceil(this.diff / 5);
+        }
+    
+        this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    
+        if(this.count < this.target_count) {
+            this.timer = setTimeout(function() { self.counter(); }, 100);
+        } else {
+            clearTimeout(this.timer);
+        }
+    };
+var votenum = '<%=@num%>';
+
+new numberCounter("counter1", votenum);
+
+
+</script>
