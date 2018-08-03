@@ -8,17 +8,7 @@
 
 @font-face { font-family: 'GyeonggiBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
 
-.headerfont{
-    font-family: "WONTitle";
-    font-size: 20px;
-    line-height: 35px;
-    color: black;
-}
 
-.shape{
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
 //------------------header 끝-----------------
 
 
@@ -77,9 +67,7 @@
 }
 
 
-//수정 전 howto
-.imgbox{
-}
+
 
 .howto_image{
     width:100px;
@@ -124,3 +112,48 @@
 }
 
 //--------------참여방법 소개 css 끝---------------
+
+.headerfont{
+    font-family: "WONTitle";
+    font-size: 20px;
+    line-height: 35px;
+    color: black;
+}
+
+.normalfont {
+    font-family:"NanumSquareround";
+    font-size: 15px;
+    color: black;
+}
+
+.navcontent {
+    line-height: 27px;  
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    width: 40px;
+    height: 2px;
+    background: rgb(151, 46, 46);
+    line-height: 18px;
+}
+
+.scrollToTop{
+    font-family: "NanumSquareround";
+    width:100px; 
+    height:130px;
+    padding:10px; 
+    text-align:center; 
+    background: whiteSmoke;
+    color: #444;
+    text-decoration: none;
+    position: flex;
+    top:75px;
+    right:40px;
+    display:none;
+    background: url('arrow_up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+    text-decoration:none;
+}
