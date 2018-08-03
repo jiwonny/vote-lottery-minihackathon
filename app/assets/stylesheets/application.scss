@@ -49,3 +49,237 @@
 .scrollToTop:hover{
     text-decoration:none;
 }
+//------------------header--------------------
+
+
+@font-face { font-family: 'WONTitle'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/WONTitle.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'NanumSquareRound'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'GyeonggiBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+
+//------------------header 끝-----------------
+
+
+//------------------main-----------------------
+.votenum_box{
+    width: 100%;
+    height: 200px;
+    background-color: #F1F1F1;
+    align-items: center;
+}
+
+.votenum_text{
+    color: #707070;
+    text-align: center;
+    font-size: 22px;
+}
+
+//인원수 counter
+#counter1{
+    font-size: 25px;
+    font-weight: 500;
+
+}
+
+.btn_vote{
+    margin-top: -24px;
+    background-color: white;
+}
+
+
+//----------------main 끝-------------------
+
+//----------------참여방법 소개 css----------------
+
+.howto_img_box{
+    height: 110.5px;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.howto_img{
+    height: 100%;
+    width: 100%;
+
+}
+
+.howto_bar{
+    width: 40px;
+    height: 1px;
+    background-color: #A13030;
+    margin-bottom: 10.5px;
+}
+
+.howto_text_title{
+    font-size: 20px;
+}
+
+
+
+.howto_image{
+    width:100px;
+    height:100px;
+}
+
+.howto_text{
+    padding-left: 10px;
+    padding-top: 15px;
+    font-size: 14px;
+}
+
+.howto_box{
+    margin: 15px;
+    display: flex;
+}
+
+.max_cont{
+    display: block;
+}
+
+@media screen and (min-width: 760px){
+    .max_cont{
+        display: flex;
+        justify-content: space-around;
+    }
+    .howto_box{
+        height: 260px;
+        margin-left: 20px;
+        margin-right: 20px;
+        width: 150px;
+        display: inline-block;
+    }
+    .howto_text{
+        padding-left: 0px;
+        text-align: center;
+    }
+    .howto_image{
+        width: 100%;
+        height: 160px;
+    }
+}
+
+//--------------참여방법 소개 css 끝---------------
+
+.headerfont{
+    font-family: "WONTitle";
+    font-size: 20px;
+    line-height: 35px;
+    color: black;
+}
+
+.normalfont {
+    font-family:"NanumSquareround";
+    font-size: 15px;
+    color: black;
+}
+
+.navcontent {
+    line-height: 27px;  
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    width: 40px;
+    height: 2px;
+    background: rgb(151, 46, 46);
+    line-height: 18px;
+}
+
+.scrollToTop{
+    font-family: "NanumSquareround";
+    width:100px; 
+    height:130px;
+    padding:10px; 
+    text-align:center; 
+    background: whiteSmoke;
+    color: #444;
+    text-decoration: none;
+    position: flex;
+    top:75px;
+    right:40px;
+    display:none;
+    background: url('arrow_up.png') no-repeat 0px 20px;
+}
+.scrollToTop:hover{
+    text-decoration:none;
+}
+// Lotto Index Page 
+// 카운트다운 타이머 -----------------------
+#timer {
+    margin-top: 100px;
+}
+
+ul#example {
+    list-style: none;
+    margin: 50px 0;
+    padding: 0;
+    display: block;
+    text-align: center;
+  }
+  
+  ul#example li { display: inline-block; }
+  
+  ul#example li span {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 45px;
+  }
+  
+  ul#example li.seperator {
+    font-size: 40px;
+    line-height: 35px;
+    vertical-align: top;
+  }
+  
+  ul#example li p {
+    color: #a7abb1;
+    font-size: 15px;
+  }
+
+  ul#example li.title {
+    font-family: "WONTitle";
+    color: #a7abb1;
+    font-size: 30px;
+  }
+//------------------------------타이머 끝//
+
+//---------당첨자명단
+#winnerbox {
+    margin: 0px 30px;
+    background: #f1efed;
+    height: 300px;
+}
+
+//모바일 fontsize test
+@media screen and (max-width:600px) {
+    #winnerbox {
+      font-size: 12px
+    }
+    h4.lottitle {
+        font-size: 15px
+      }
+  }
+  .titlel {
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    font-size: 20px;
+    margin: 60px 0 60px;
+ }
+ .titlel::after {
+    content: "";
+    width: 190px;
+    position: absolute;
+    margin: 0 auto;
+    height: 3px;
+    background: rgb(114, 16, 16);
+    left: 0;
+    right: 0;
+    bottom: -15px;
+ 
+ }
