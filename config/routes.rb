@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :routers
   resources :voters
   resources :lottos
   devise_for :admins
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
 
   root 'home#index'   
   get '/faq' => 'home#faq'
+
+  get '/routers' => 'routers#index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin' # merge할 때 제일 마지막줄에 위치하게 해주세요!!
  
