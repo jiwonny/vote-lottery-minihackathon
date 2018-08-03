@@ -23,18 +23,19 @@
 .votenum_text{
     color: #707070;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
+    font-family:"NanumSquareround";
 }
 
 //인원수 counter
 #counter1{
-    font-size: 25px;
+    font-size: 23px;
     font-weight: 500;
-
+    font-family:"NanumSquareround";
 }
 
-.btn_vote{
-    margin-top: -24px;
+.btn_vote{//응모하기 버튼
+    margin-top: -22px;
     background-color: white;
 }
 
@@ -52,7 +53,6 @@
 .howto_img{
     height: 100%;
     width: 100%;
-
 }
 
 .howto_bar{
@@ -62,62 +62,46 @@
     margin-bottom: 10.5px;
 }
 
+.howto_text_box{
+    margin-top: 15px;
+    margin-right: 8px;
+    margin-left: 8px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
 .howto_text_title{
     font-size: 20px;
+    font-family: "NanumSquareround"
 }
 
-
-
-
-.howto_image{
-    width:100px;
-    height:100px;
+.howto_text_title2{
+    font-size: 13px;
+    margin-bottom: 19px;
 }
 
-.howto_text{
-    padding-left: 10px;
-    padding-top: 15px;
-    font-size: 14px;
+.howto_text_normal{
+    font-size: 10px;
+    line-height: 14px;
 }
-
-.howto_box{
-    margin: 15px;
-    display: flex;
-}
-
-.max_cont{
-    display: block;
-}
-
-@media screen and (min-width: 760px){
-    .max_cont{
-        display: flex;
-        justify-content: space-around;
-    }
-    .howto_box{
-        height: 260px;
-        margin-left: 20px;
-        margin-right: 20px;
-        width: 150px;
-        display: inline-block;
-    }
-    .howto_text{
-        padding-left: 0px;
-        text-align: center;
-    }
-    .howto_image{
-        width: 100%;
-        height: 160px;
-    }
-}
+//이전
 
 //--------------참여방법 소개 css 끝---------------
 
+
+//--------------header---------------------
 .headerfont{
     font-family: "WONTitle";
-    font-size: 20px;
+    font-size: 22px;
     line-height: 35px;
     color: black;
+    
+}
+
+@media screen and (max-width: 380px){
+    .headerfont{
+        font-size: 19.4px;
+    }
 }
 
 .normalfont {
@@ -157,3 +141,4 @@
 .scrollToTop:hover{
     text-decoration:none;
 }
+//----------------header 끝---------------

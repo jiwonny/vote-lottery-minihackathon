@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20180801165004) do
     t.datetime "updated_at",                       null: false
     t.string   "firstwinner"
     t.text     "resultnum",   default: "--- []\n"
-    t.text     "lotarray"
   end
 
   create_table "pledges", force: :cascade do |t|
