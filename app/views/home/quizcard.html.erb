@@ -1,6 +1,6 @@
 
 <%# 만약 pledges모델에 글이 하나면 단일후보퀴즈가 보임 %>
-<% if Pledge.all.count == 1 %> 
+<% if Pledgenewee.all.count == 1 %> 
   <div class="test">
     <h1>블라인드 공약 테스트</h1>
     <div class="quiz-container"> 
@@ -160,7 +160,7 @@ background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
 </style>
 
 <%# 대선후보가 1 명일때-------------------------------------------------------------------------------------- %>
-<% if Pledge.all.count == 1 %> 
+<% if Pledgenewee.all.count == 1 %> 
 <script>
 (function() {
   const myQuestions = [
@@ -242,7 +242,7 @@ background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
     // show number of correct answers out of total
     // resultsContainer.innerHTML = `${numA} out of ${myQuestions.length}`;
     
-    const teamname = "<%= Pledge.where(id:9).pluck(:Title).to_s.gsub('"','') %>";
+    const teamname = "<%= Pledgenewee.where(id:1).pluck(:Title).to_s.gsub('"','') %>";
     const result = []
     const percentAA = numA/myQuestions.length*100
     const percentA = percentAA.toFixed(1)
@@ -268,7 +268,7 @@ background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
         <div class="progress-bar" id="no" style="width:${percentB}%">${percentB}% </div>
       </div><br>
       <div class="report"> ${report} </div>
-      <button id="submit"><a href="/pledges" style="color:white"> 공약 더보러가기 </button>
+      <button id="submit"><a href="/pledgenewees" style="color:white"> 공약 더보러가기 </button>
       </div>`
       )
     resultsContainer.innerHTML = result.join("");
@@ -409,8 +409,8 @@ background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
       }
     });
     // resultsContainer.innerHTML = `${numA} out of ${myQuestions.length}`;
-    const teamname1 = "<%= Pledge.where(id:9).pluck(:Title).to_s.gsub('"','') %>";  
-    const teamname2 = "<%= Pledge.where(id:10).pluck(:Title).to_s.gsub('"','') %>";
+    const teamname1 = "<%= Pledgenewee.where(id:1).pluck(:Title).to_s.gsub('"','') %>";  
+    const teamname2 = "<%= Pledgenewee.where(id:2).pluck(:Title).to_s.gsub('"','') %>";
       
     const result = []
     const percentAA = numA/myQuestions.length*100.

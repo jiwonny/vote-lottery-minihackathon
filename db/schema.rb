@@ -56,6 +56,20 @@ ActiveRecord::Schema.define(version: 20180804203407) do
     t.string   "image"
   end
 
+  create_table "pledgenewees", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.string   "title2"
+    t.text     "content2"
+    t.string   "title3"
+    t.text     "content3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+    t.string   "image2"
+  end
+
   create_table "pledges", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -67,6 +81,7 @@ ActiveRecord::Schema.define(version: 20180804203407) do
     t.string   "title3"
     t.text     "content3"
     t.string   "image2"
+    t.string   "name"
   end
 
   create_table "routers", force: :cascade do |t|

@@ -1,0 +1,84 @@
+
+
+</style>
+  <head>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>      
+  
+  </head>
+ 
+  <body>
+  <div class="container">
+    <div class="poster_bar"></div>
+      <p class= "poster_intro"><strong> 올해의 선거본부 후보단을 소개합니다! </strong></p>
+    <p id="notice"><%= notice %></p>
+    <div class="d-sm-flex flex-sm-column align-items-center">
+            <% @pledgenewees.each do |pledgenewee| %>
+             <%# <p class="poster_name"> <%= pledgenewee.name %>
+             <div class="image">
+              <%= link_to image_tag("#{pledgenewee.image}", class: "poster_image"), pledgenewee %>
+              </div>
+                  <%# <%= link_to '확인', pledge | %>
+                  <%# <%= link_to '변경', edit_pledge_path(pledge) %>
+                  <%# <%= link_to '삭제', pledge, method: :delete, data: { confirm: '삭제하시겠습니까?' } %>
+                 
+                  <%# <div class="poster_bar2"></div> %>
+            <% end %>
+    </div>
+    
+
+</div>
+</body>
+<style>
+
+/* // 포스터 페이지 CSS */
+.container {
+  margin-left: 40px;
+}
+.image{
+  margin-left:18px;
+}
+ul {
+    list-style: none;
+    }
+    .poster_name {
+    font-size: 10px;
+    margin-top: 7%;
+    font-family: 'NanumSquareRound';
+    }
+  .poster_image{
+    width: 55vw; 
+    height: 43.5vh; 
+    margin-top: 3%;
+  }
+  
+  .poster_footer{
+    height: 5%; 
+    background-color: #7D2222; 
+    position:relative;
+    font-size: 2rem;
+  }
+
+  .poster_font {
+    color: white;
+  }
+
+  .poster_intro {
+    font-size: 20px;
+    font-family: 'NanumSquareRound';
+  
+  }
+
+  .poster_bar {
+    margin-top: 10%; 
+    background-color: #7D2222; 
+    width: 10%; 
+    height: 0.35vh;
+  }
+  .poster_bar2 { 
+    margin-bottom: 10%;
+    background-color: #7D2222; 
+    width: 10%; 
+    height: 0.35vh;
+  }

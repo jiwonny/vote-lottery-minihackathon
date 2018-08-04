@@ -1,15 +1,21 @@
-<%= form_for(pledge) do |f| %>
-  <% if pledge.errors.any? %>
+<%= form_for(pledgenewee) do |f| %>
+  <% if pledgenewee.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pledge.errors.count, "error") %> 저장이 원활하지 않습니다! </h2>
+      <h2><%= pluralize(pledgenewee.errors.count, "error") %> prohibited this pledgenewee from being saved:</h2>
 
       <ul>
-      <% pledge.errors.full_messages.each do |message| %>
+      <% pledgenewee.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+
+    <div class="field">
+      <p>선거본부 후보팀</p>
+      <%= f.label :name, '후보팀 : ' %>
+      <%= f.text_field :name %>
+    </div>
 
     <div class="field">
       <p>첫 번재 공약</p>
@@ -18,7 +24,7 @@
     </div>
   
     <div class="field">
-      <%= f.label :content, '세부 설명: ' %>
+      <%= f.label :content, '세부 설명 : ' %>
       <%= f.text_area :content %>
     </div>
 
@@ -29,7 +35,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :content2, '세부 설명: '%>
+      <%= f.label :content2, '세부 설명 : '%>
       <%= f.text_area :content2 %>
     </div>
 
@@ -40,7 +46,7 @@
     </div>
 
     <div class="field">
-      <%= f.label :content3, '세부 설명: '%>
+      <%= f.label :content3, '세부 설명 : '%>
       <%= f.text_area :content3 %>
     </div>
 

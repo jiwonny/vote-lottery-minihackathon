@@ -6,6 +6,5 @@ class HomeController < ApplicationController
   end
 
   def quizcard
-    $team = Pledge.all.count
   end
 end

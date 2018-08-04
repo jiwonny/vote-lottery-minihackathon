@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
   #vote_logs routing
   resources :vote_logs
+  resources :pledgenewees
+
   get 'home/index'
   post 'vote_logs/checkDouble' => 'vote_logs#checkDouble'
 
   #pledges routing
-  resources :pledges
   get '/pledges' => 'pledges#index'
   
 
