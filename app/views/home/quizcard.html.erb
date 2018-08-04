@@ -240,6 +240,10 @@ button:hover{
       //resultsContainer.innerHTML =  numA + '/' + myQuestions.length + '후보1 정책을 더 선호합니다.';
       result.push(
         `<div class="container"> <br><h3>${percentA}%의 확률로 <br> 후보1 정책을 더 선호합니다. </h3>
+        <div class="progress">
+          <div class="progress-bar" style="width:${percentA}%">${percentA}% </div>
+          <div class="progress-bar bg-secondary" style="width:${percentB}%">${percentB}%</div>
+        </div>
         <h4> 후보2매칭률 :${percentB}% </h4> <br>
         <div class="report"> ${report} </div>
         </div>`
@@ -253,6 +257,10 @@ button:hover{
     else{
          result.push(
         `<div class="container"> <br><h3> ${percentB}%의 확률로 <br> 후보2 정책을 더 선호합니다.</h3>
+        <div class="progress">
+          <div class="progress-bar" style="width:${percentB}%"> ${percentB}% </div>
+          <div class="progress-bar bg-secondary" style="width:${percentA}%"> ${percentA}% </div>
+        </div>
         <h5> 후보1매칭률: ${percentA}%</h5> <br>
         <div class="report"> ${report} </div>
         </div>`
