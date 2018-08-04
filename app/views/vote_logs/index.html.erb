@@ -50,11 +50,12 @@
 
   var okay= document.querySelectorAll(".vote_img");
 
-for (var i = 0; i < okay.length; i++) {
-    okay[i].addEventListener('click', function(event) {
-        alert("안녕");
-        });
-    }
+  for (var i = 0; i < okay.length; i++){
+    okay[i].onclick = function(idx) {
+      if(idx < okay.length) {
+        okay[idx].classList.toggle("experiment");}
+    }.bind(okay[i], i);
+  }
 
 
   function numberCounter(target_frame, target_number) {

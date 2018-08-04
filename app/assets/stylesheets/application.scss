@@ -24,7 +24,7 @@
   color: #ffffff;   
   text-align: left;
   font-size: 16px;
-  background-color: rgba(63, 56, 56, 0.883);
+  background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
 }
 .third_img{
     margin-right: 0px;
@@ -35,6 +35,16 @@
   -webkit-transition: all 0.5s ease-in;
   transition: all 0.5s ease-in;
 }
+
+.experiment{
+    -webkit-filter: grayscale(50%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(50%);
+
+    opacity: 0.58;
+    transition-property: all;
+    transition-duration: 0.6s;
+}
+
 
 /* ------------------img효과 끝--------------- */
 
