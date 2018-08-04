@@ -23,6 +23,19 @@ gem 'kaminari'
 gem 'bootstrap', '~> 4.1.3'
 gem 'rails_db', '2.0.2'
 
+#부트스트랩
+gem 'bootstrap', '~> 4.1.3'
+
+#데이터베이스
+gem 'rails_db', '2.0.2'
+
+# S3 이미지
+gem 'carrierwave', '~> 1.0' 
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'figaro'
+ 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
 # Use sqlite3 as the database for Active Record

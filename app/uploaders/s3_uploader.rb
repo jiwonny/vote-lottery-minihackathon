@@ -25,9 +25,9 @@ class S3Uploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process scale: [200, 300]
   #
-  def scale(width, height)
-    process scale: [300, 300]
-  end
+  # def scale(width, height)
+  #   # do something
+  # end
 
   # Create different versions of your uploaded files:
   # version :thumb do
@@ -38,18 +38,7 @@ class S3Uploader < CarrierWave::Uploader::Base
     process resize_to_fit: [600, 10000]
   end
   version :main do
-      process resize_to_fill: [240, 180], :if => :horizontal?
-      process resize_to_fill: [240, 320], :if => :vertical?
-  end
-
-  def horizontal?(new_file)
-    image = MiniMagick::Image.open(self.file.file)
-    true if image[:height] < image[:width]
-  end
-  
-  def vertical?(new_file)
-    image = MiniMagick::Image.open(self.file.file)
-    true if image[:height] > image[:width]
+    process resize_to_fill: [240, 180]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
@@ -60,8 +49,7 @@ class S3Uploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  #def filename
+  # def filename
   #   "something.jpg" if original_filename
-  #end
-
+  # end
 end

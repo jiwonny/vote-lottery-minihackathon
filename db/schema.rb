@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180804203407) do
+=======
+ActiveRecord::Schema.define(version: 20180804202758) do
+>>>>>>> 35e816d957002120ba146282729d80c5a1be4fc9
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -39,6 +43,7 @@ ActiveRecord::Schema.define(version: 20180804203407) do
     t.text     "resultnum",   default: "--- []\n"
   end
 
+<<<<<<< HEAD
   create_table "pledgeintros", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
@@ -59,6 +64,48 @@ ActiveRecord::Schema.define(version: 20180804203407) do
     t.string   "title3"
     t.text     "content3"
     t.string   "image2"
+=======
+  create_table "pledgenewees", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.string   "title2"
+    t.text     "content2"
+    t.string   "title3"
+    t.text     "content3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+    t.string   "image2"
+  end
+
+  create_table "pledgenews", force: :cascade do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "content"
+    t.string   "title2"
+    t.text     "content2"
+    t.string   "title3"
+    t.text     "content3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+    t.string   "image2"
+  end
+
+  create_table "pledges", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "title2"
+    t.text     "content2"
+    t.string   "title3"
+    t.text     "content3"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+    t.string   "image2"
+    t.string   "name"
+>>>>>>> 35e816d957002120ba146282729d80c5a1be4fc9
   end
 
   create_table "routers", force: :cascade do |t|
@@ -75,8 +122,6 @@ ActiveRecord::Schema.define(version: 20180804203407) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "log_id"
-    t.index ["log_id"], name: "index_school_dbs_on_log_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -105,14 +150,6 @@ ActiveRecord::Schema.define(version: 20180804203407) do
     t.string   "image"
     t.string   "phoneNum"
     t.string   "password"
-  end
-
-  create_table "voters", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "studentid"
-    t.integer  "phonenum"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
