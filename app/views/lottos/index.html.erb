@@ -4,7 +4,7 @@
   <!--타이머-->
   <div class="countdown">
     <ul id = "example">
-      
+      <li class="title"> 결과 발표까지 </li> <br><br>
       <li><span id="days"></span><p class="days_text">Days</p></li>
       <li class="seperator">:</li>
       <li><span id="hours"></span><p class="hours_text">Hours</p></li>
@@ -13,7 +13,7 @@
       <li class="seperator">:</li>
       <li><span id="seconds"></span><p class="seconds_text">Seconds</p></li> <br>
       <li class="title"> 남았습니다. </li> <br><br><br><br>
-      <li><a href="/lottos/new"style="color:gray"><button type="button" class="btn btn-outline-dark">페이스북 실시간 추첨 확인하러가기</button></a></li>
+      <li><a href="/"style="color:gray"><button type="button" class="btn btn-outline-dark">페이스북 실시간 추첨 확인하러가기</button></a></li>
     </ul>
   </div>
 
@@ -29,14 +29,14 @@
   </div>
 <% end %>
 
-<!--화면 전환용 버튼, 관리자에게만 보이게-->
+<!--화면 전환용 버튼, 관리자에게만 보이게
 <%if current_user && current_user.admin?%>
   <button onclick = "showTime()" type = "button" id = "pageToTime">시간 페이지 보기</button>
   <button onclick = "showResult()" type = "button" id = "pageToResult">결과 페이지 띄우기</button>
 <%end%>
 
 
-<!--페이지 전환용 버튼-->
+페이지 전환용 버튼
 <script> 
   var timeButton = document.getElementById("pageToTime");
   var resultButton = document.getElementById("pageToResult");
@@ -57,14 +57,14 @@
 </script>
 
 
-
+-->
 
 <style>
 canvas {
   position: absolute;
   margin-left: 60px;
   bottom: 0;
-  width: 85%;
+  width: 68%;
 }
 
 </style>
@@ -73,7 +73,7 @@ canvas {
 
 <!--countdown용 js-->
 <script>
-var countDownDate = new Date("August 5, 2018 12:00:00").getTime();
+var countDownDate = new Date("August 5, 2018 20:38:00").getTime();
 // Update the count down every 1 second
 var x = setInterval(function() {
   // Get todays date and time
@@ -101,7 +101,7 @@ var x = setInterval(function() {
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("example").innerHTML = "당첨 확인하러가기";
+    document.getElementById("example").innerHTML = "";
   }
 
 }, 1000);

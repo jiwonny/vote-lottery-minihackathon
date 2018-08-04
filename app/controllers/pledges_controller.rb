@@ -5,6 +5,7 @@ class PledgesController < ApplicationController
   # GET /pledges.json
   def index
     @pledges = Pledge.all
+    
   end
 
   # GET /pledges/1
@@ -15,6 +16,11 @@ class PledgesController < ApplicationController
   # GET /pledges/new
   def new
     @pledge = Pledge.new
+    if current_user && current_user.admin?
+      Pledge.new
+    else
+      redirect_to user_session_path
+    end
   end
 
   # GET /pledges/1/edit
