@@ -61,7 +61,11 @@
                 </ul>
             </div>
             <% end %>
-    <%= link_to '공약 등록하기', new_pledge_path%>
+
+    <% if current_user && current_user.admin? %>
+      <%= link_to '공약 등록하기', new_pledge_path%>
+    <% end %>       
+    
     </div>
   </BODY>
     <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>

@@ -1,16 +1,19 @@
 
 <h1>블라인드 공약 테스트</h1>
 <div class="quiz-container">
-  <div id="quiz"></div>
+  <div id="quiz"> </div>
 </div>
-<button id="previous">Previous Question</button>
-<button id="next">Next Question</button>
-<button id="submit">Submit Quiz</button>
-<div id="results"></div>
+<button id="previous">◀</button>  &nbsp;
+<button id="next">▶</button>
+<button id="submit">확인</button>
+<div id="results"> </div>
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Work+Sans:300,600);
 
+i{
+  size: 50px;
+}
 body{
     font-size: 20px;
     font-family: 'Work Sans', sans-serif;
@@ -27,22 +30,46 @@ h1{
   background-color: #444;
   color: #fff;
 }
+
 .question{
+  text-align: center;
   font-size: 30px;
   margin-bottom: 10px;
+  font-weight: bold;
 }
+
+@media screen and (max-width:500px) {
+  .question{
+    font-size:20px;
+    width: 80%;
+    margin-left: 30px;
+    text-align: left;
+  }
+  .answers {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  display: inline-block;
+  width: 80%;
+  font-size: 15px;
+  position: relative;
+  }
+}
+
 .answers {
   margin-bottom: 20px;
   text-align: left;
   display: inline-block;
+  position: relative;
 }
 .answers label{
   display: block;
   margin-bottom: 10px;
+  position: relative;
 }
 button{
   font-family: 'Work Sans', sans-serif;
-    font-size: 22px;
+    font-size: 15px;
     background-color: #279;
     color: #fff;
     border: 0px;
@@ -50,6 +77,7 @@ button{
     padding: 20px;
     cursor: pointer;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 button:hover{
     background-color: #38a;
@@ -75,7 +103,10 @@ button:hover{
 }
 .container{
   background: lightgray;
-  height: 200px;
+}
+.report {
+  text-align: left;
+  font-size: 14px;
 }
 </style>
 
@@ -84,10 +115,10 @@ button:hover{
 (function() {
   const myQuestions = [
     { //문제수는 편의상 홀수개로 해주세요!
-      question: "여러분은 사드배치에 대해 어떻게 생각하세요?",
+      question: "여러분은 사드배치에 대해 어떻게 생각하세요?<br>",
       answers: {
             정책1: '찬성',
-            정책2: '다음 정부가 결정해야함'
+            정책2: '반대'
       },
       candidateA: "정책1" //수정1 correctanswer이름으 candidatea로바꿈
     },
@@ -109,6 +140,7 @@ button:hover{
     }
   ];
 
+  
   function buildQuiz() {
     // we'll need a place to store the HTML output
     const output = [];
@@ -117,6 +149,7 @@ button:hover{
     myQuestions.forEach((currentQuestion, questionNumber) => {
       // we'll want to store the list of answer choices
       const answers = [];
+      const now = questionNumber+1 +'/'+myQuestions.length
 
       // and for each available answer...
       for (letter in currentQuestion.answers) {
@@ -133,7 +166,8 @@ button:hover{
       // add this question and its answers to the output
       output.push(
         `<div class="slide">
-           <div class="question"> ${currentQuestion.question} </div>
+          <div class="now"> ${now} </div>
+           <div class="question"> Q. ${currentQuestion.question} </div>
            <div class="answers"> ${answers.join("")} </div>
          </div>`
       );
@@ -147,7 +181,8 @@ button:hover{
 
     // gather answer containers from our quiz
     const answerContainers = quizContainer.querySelectorAll(".answers");
-
+    const answerA = quizContainer.querySelectorAll(".정책1");
+    
     // keep track of user's answers
     let numA = 0; //수정2 numCorrect 이름을 numA로 변경
     //수정3
@@ -164,12 +199,11 @@ button:hover{
       if (userAnswer === currentQuestion.candidateA) {
         // add to the number of correct answers
         numA++;
-
+        //currentQuestion.candidateA.style.color ="red";
         // color the answers green
-        //answerContainers[questionNumber].style.color = "lightgreen";
         //수정4
-        //answerContainers[questionNumber].innerHTML +="후보1 정책입니다.";
-        answerContainers[questionNumber].style.color = "lightgreen";        
+        
+        //answerA[questionNumber].innerHTML +='<br>&nbsp&nbsp후보1의 정책';      
        
       } else {
         // if answer is wrong or blank
@@ -182,30 +216,53 @@ button:hover{
 
     // show number of correct answers out of total
     // resultsContainer.innerHTML = `${numA} out of ${myQuestions.length}`;
-    // 수정7
-   
+    // 수정7 
     const result = []
     const percentAA = numA/myQuestions.length*100.
     const percentA = percentAA.toFixed(1)
     const percentBB = numB/myQuestions.length*100
     const percentB = percentBB.toFixed(1)
-    
+
+    // 결과페이지에  -- 문제-후보매칭<< 코드쓰레기지만ㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠㅠ양해부탁ㅠㅠㅠㅠㅠㅠ
+    const report = `<h5> 1. 여러분은 사드배치에 대해 어떻게 생각하세요? </h5>
+            <div class="A1">'찬성'= 후보1 </div>
+            <div class="B1"> '반대'= 후보2  </div> <br>
+          <h5> 2. 우리 정부가 일자리를 더 많이 만들려면 어떻게 해야할까요? </h5>
+            <div class="B2"> '공공부문에서 일자리 늘리기' = 후보2' </div>
+            <div class="A2"> '창업과 중소기업을 지원' = 후보1' </div> 
+             </p> 
+          <h5> 3. 일과 삶이 균형을 이루는 '저녁이 있는 삶'을 만들려면 정부가 무엇을 해야할까요?"</h5>
+            <div class="B3">'주 52시간 법정노동시간 지키기' = 후보2 </div>
+             <div class="A3">'퇴근 후 돌발노동을 법적으로 금지' = 후보1 </div>
+          <button><a href="/pledges"style="color:white"> 공약 더보러가기 </button>`
+  
     if(numA>numB){
-      //resultsContainer.innerHTML = '<div class= "container">' + numA + '</div>'
       //resultsContainer.innerHTML =  numA + '/' + myQuestions.length + '후보1 정책을 더 선호합니다.';
       result.push(
-        `<div class="container"> <br><h3>${percentA}%의 확률로 후보1 정책을 더 선호합니다. </h3>
-        <h4> 후보2매칭률 :${percentB}% </h4> </div>`
-
+        `<div class="container"> <br><h3>${percentA}%의 확률로 <br> 후보1 정책을 더 선호합니다. </h3>
+        <h4> 후보2매칭률 :${percentB}% </h4> <br>
+        <div class="report"> ${report} </div>
+        </div>`
       )
+      resultsContainer.innerHTML = result.join("");
+      resultsContainer.querySelector(".A1").style.color ="blue";
+      resultsContainer.querySelector(".A2").style.color ="blue";
+      resultsContainer.querySelector(".A3").style.color ="blue";
+      
     }
     else{
          result.push(
-        `<div class="container"> <br><h3> ${percentB}%의 확률로 후보2 정책을 더 선호합니다.</h3>
-        <h4> 후보1매칭률: ${percentA}%</h4> </div>`
+        `<div class="container"> <br><h3> ${percentB}%의 확률로 <br> 후보2 정책을 더 선호합니다.</h3>
+        <h5> 후보1매칭률: ${percentA}%</h5> <br>
+        <div class="report"> ${report} </div>
+        </div>`
       )
+      resultsContainer.innerHTML = result.join("");
+      resultsContainer.querySelector(".B1").style.color ="blue";
+      resultsContainer.querySelector(".B2").style.color ="blue";
+      resultsContainer.querySelector(".B3").style.color ="blue";
+      
     }
-    resultsContainer.innerHTML = result.join("");
   }
 
   function showSlide(n) {
@@ -257,7 +314,7 @@ button:hover{
   nextButton.addEventListener("click", showNextSlide); //넥스트버튼누르면 shownextslide=showslide(n+1)function에 addslide되는 기능잇움
 })();
 
-//글구 그 어느정책이 어느후보껀지 submit하면 보이기 보기전체색변화말규 //미완
+//글구 그 어느정책이 어느후보껀지 submit하면 보이기 보기전체색변화말규 => 결과페이지에 넣기
 
 
 /*
