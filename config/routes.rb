@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get '/routers' => 'routers#index'
 
+  get '/pledges' => 'pledges#index'
+
   post 'vote_logs/checkDouble' => 'vote_logs#checkDouble'
  
   get 'home/index'
