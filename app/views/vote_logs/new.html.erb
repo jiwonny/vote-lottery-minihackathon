@@ -1,8 +1,11 @@
+<div class = "container">
+    <div class = "col-sm-11 col-xl-11 mx-auto">
+        <div><%=image_tag("howto.jpg", class: "vote-new-image")%></div>
 
-    <h1>응모페이지</h1>
+        <%= render 'form', vote_log: @vote_log %>
 
-    <%= render 'form', vote_log: @vote_log %>
-
-    <%= link_to '뒤로가기', vote_logs_path %>
+        <%= link_to '뒤로가기', vote_logs_path %>
+    </div>
+</div>
 
 
