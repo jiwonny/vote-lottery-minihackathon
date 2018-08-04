@@ -5,6 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# 구글 맵 gem
+gem 'gmaps4rails'
+
+# 무한 스크롤
+gem 'will_paginate', '~> 3.0.7'
+
 gem 'devise-i18n'
 gem 'rails_admin'
 gem 'devise'
@@ -15,6 +21,8 @@ gem 'figaro'
 gem 'kaminari'
 
 gem 'bootstrap', '~> 4.1.3'
+gem 'rails_db', '2.0.2'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7'
 # Use sqlite3 as the database for Active Record
@@ -61,6 +69,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_db', '2.0.2'
-gem 'gmaps4rails'
 
 
