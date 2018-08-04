@@ -1,5 +1,5 @@
 @import "bootstrap";
-//------------------header--------------------
+//------------------font 정리--------------------
 
 
 @font-face { font-family: 'WONTitle'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/WONTitle.woff') format('woff'); font-weight: normal; font-style: normal; }
@@ -8,8 +8,7 @@
 
 @font-face { font-family: 'GyeonggiBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
 
-
-//------------------header 끝-----------------
+@font-face { font-family: 'TmonMonsori'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff'); font-weight: normal; font-style: normal; }
 
 //------------------image효과 시작-------------
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,500,700);
@@ -68,8 +67,6 @@
   text-transform: uppercase;
 }
 .snip1273 p {
-
-    font-family: "NanumSquareRound";
   font-size: 1.05em;
   font-weight: 500;
   margin: 0 0 15px;
@@ -162,14 +159,12 @@
     color: #707070;
     text-align: center;
     font-size: 20px;
-    font-family:"NanumSquareround";
 }
 
 //인원수 counter
 #counter1{
     font-size: 23px;
     font-weight: 500;
-    font-family:"NanumSquareround";
 }
 
 .btn_vote{//응모하기 버튼
@@ -226,7 +221,6 @@
 
 .howto_text_title{
     font-size: 20px;
-    font-family: "NanumSquareround"
 }
 
 .howto_text_title2{
@@ -246,39 +240,31 @@
 //--------------header---------------------
 .headerfont{
     font-family: "WONTitle";
-    font-size: 22px;
+    font-size: 18px;
     line-height: 35px;
-    color: black;
+    background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     
 }
 
 @media screen and (max-width: 380px){
     .headerfont{
         font-size: 19.4px;
+        
     }
 }
 
-.normalfont {
-    font-family:"NanumSquareround";
-    font-size: 15px;
-    color: black;
-}
 
-.navcontent {
-    line-height: 27px;  
-    display: flex;
-    align-items: center;
-}
 
 .line {
     width: 40px;
     height: 2px;
-    background: rgb(151, 46, 46);
+    background-image: linear-gradient( 33.2deg,  rgba(157,147,247,1) 30.2%, rgba(117,176,247,1) 61.4% );
     line-height: 18px;
 }
 
 .scrollToTop{
-    font-family: "NanumSquareround";
     width:100px; 
     height:130px;
     padding:10px; 
@@ -375,8 +361,6 @@ ul#example {
  
  }
 
-
-
  //---------------------------------------
  //----------footer 관련 css--------------
  $brand-light: #fff;
@@ -389,24 +373,24 @@ main {
   height: 100vh;
 }
 footer {
-  height: 300px;
+  height: 150px;
   background-image: linear-gradient( 33.2deg,  rgba(157,147,247,1) 30.2%, rgba(117,176,247,1) 61.4% );
   position: relative;
   .footer__inner {
     position: fixed;
     bottom: 0;
     left: 0;
-    padding: 40px 60px;
+    padding: 5px 8px;
     width: 100%;
     * {
-      color: $brand-light;
+      color: white;
     }
   }
   .logo {
     text-align: center;
     text-transform: uppercase;
     font-size: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     transform: translateY(50px);
     opacity: 0;
     transition: transform, opacity;
@@ -424,4 +408,9 @@ footer {
     justify-content: space-between;
     align-items: center;
   }
+}
+
+//--------body font입니다. css 가장 마지막에 두세요!-----------
+.body {
+  font-family: 'NanumSquareround'
 }
