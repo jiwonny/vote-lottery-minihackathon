@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   post 'vote_logs/checkDouble' => 'vote_logs#checkDouble'
 
   #pledges routing
-  resources :pledges
   get '/pledges' => 'pledges#index'
   
 
