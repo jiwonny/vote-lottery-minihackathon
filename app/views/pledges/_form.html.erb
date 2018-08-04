@@ -1,7 +1,7 @@
 <%= form_for(pledge) do |f| %>
   <% if pledge.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pledge.errors.count, "error") %> prohibited this pledge from being saved:</h2>
+      <h2><%= pluralize(pledge.errors.count, "error") %> 저장이 원활하지 않습니다! </h2>
 
       <ul>
       <% pledge.errors.full_messages.each do |message| %>
@@ -45,8 +45,14 @@
     </div>
 
   <div class="field">
-    <%= f.label :image, '이미지' %>
+    <%= f.label :image, '선거본부 포스터 이미지' %>
     <%= f.file_field :image,
+        accept: 'image/png,image/gif,image/jpeg' %>
+  </div>
+
+    <div class="field">
+    <%= f.label :image2, '선거본부 배너 이미지' %>
+    <%= f.file_field :image2,
         accept: 'image/png,image/gif,image/jpeg' %>
   </div>
   

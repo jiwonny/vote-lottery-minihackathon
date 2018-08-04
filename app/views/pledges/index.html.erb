@@ -111,51 +111,24 @@
   </HEAD>
  
   <BODY>
+        <div class="howto_bar">
+        </div>
+        <div class="howto_text_title">
+        고려대학교 총학생회장단 
+        <br>선거운동본부 공약
+        </div>
     <p id="notice"><%= notice %></p>
-    
-    <div class="container">
-        <table>
             <% @pledges.each do |pledge| %>
-                <tr>
-                <td><%= link_to image_tag("#{pledge.image}", class: "Banner"), pledge %></td>
-                </tr>
-        </table>
-                <%= link_to '확인', pledge %> |
-                <%= link_to '변경', edit_pledge_path(pledge) %> |
-                <%= link_to '삭제', pledge, method: :delete, data: { confirm: '삭제하시겠습니까?' } %>
-            
+            <%= link_to image_tag("#{pledge.image}", style:"margin-bottom: 7%; width: 100%;"), pledge %>
+                <%# <%= link_to '확인', pledge | %>
+                <%# <%= link_to '변경', edit_pledge_path(pledge) %>
+                <%# <%= link_to '삭제', pledge, method: :delete, data: { confirm: '삭제하시겠습니까?' } %>
             <br><br>
-            
-            <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
-                <p id="spreadBtn1" class="btn01" style="font-size: 40px"><strong> 하나! </strong><%= pledge.title %></p>
-            <div id="hiddenList1" class="example01 shadow p-3 mb-5 bg-light rounded container" style="display: none; font-size: 20px">
-                <% @list = pledge.content.split(",") %>
-                <% i = 0 %>
-                <% for x in @list %>
-                    <%= i = i + 1 %> <%= ". #{x}" %> <p> </p>
-                <% end %>
-            </div>
-
-            <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
-            <p id="spreadBtn2" class="btn02" style="font-size: 40px"><strong> 둘! </strong><%= pledge.title2 %></p>
-            <div id="hiddenList2" class="example02 shadow p-3 mb-5 bg-light rounded container" style="display: none; font-size: 20px">
-                <% @list2 = pledge.content2.split(",") %>
-                <% i = 0 %>
-                <% for x in @list2 %>
-                    <%= i = i + 1 %> <%= ". #{x}" %> <p> </p>
-                <% end %>
-            </div>
-
-            <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
-            <p id="spreadBtn3" class="btn03" style="font-size: 40px"><strong> 셋! </strong><%= pledge.title3 %></p>
-            <div id="hiddenList3" class="example03 shadow p-3 mb-5 bg-light rounded" style="display: none; font-size: 20px">
-                <% @list3 = pledge.content3.split(",") %>
-                <% i = 0 %>
-                <% for x in @list3 %>
-                    <%= i = i + 1 %> <%= ". #{x}" %> <p> </p>
-                <% end %>
-            </div>
             <% end %>
-    <%= link_to '공약 등록하기', new_pledge_path%>
+    <%# <%= link_to '공약 등록하기', new_pledge_path%>
     </div>
   </BODY>
+
+<footer class="navbar fixed-bottom navbar-light bg-light" style="height: 5%; background-color: #7D2222;">
+    <%= link_to '공약 포스터 및 상세 공약 등록하기', new_pledge_path, style:"text-aling: center;" %>
+</footer>
