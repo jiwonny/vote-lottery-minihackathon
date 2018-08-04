@@ -74,8 +74,6 @@ ActiveRecord::Schema.define(version: 20180803081608) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "log_id"
-    t.index ["log_id"], name: "index_school_dbs_on_log_id"
   end
 
   create_table "users", force: :cascade do |t|

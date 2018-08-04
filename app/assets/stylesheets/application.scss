@@ -239,22 +239,35 @@
 
 //--------------header---------------------
 .headerfont{
-    font-family: "WONTitle";
-    font-size: 18px;
+    font-family: "TmonMonsori";
+    font-size: 28px;
     line-height: 35px;
     background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-    
+    letter-spacing: 5px;
 }
 
-@media screen and (max-width: 380px){
+@media screen and (max-width: 500px){
     .headerfont{
-        font-size: 19.4px;
-        
+        font-size: 18px;
+    }
+
+    .normalfont{
+      font-size: 13px;
     }
 }
 
+
+.normalfont {
+  color: rgb(71,71,71);
+  font-family: "NanumSquareround";
+  letter-spacing: 5px;
+}
+
+.custom-toggler.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(157,147,247,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
 
 
 .line {
@@ -280,6 +293,14 @@
 }
 .scrollToTop:hover{
     text-decoration:none;
+}
+
+.navwidth {
+  width: 24.8rem;
+  padding-right: 3rem;
+}
+.nav-link {
+  text-align: right;
 }
 //-------------header 끝----------------------
 
