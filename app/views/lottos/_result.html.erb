@@ -17,11 +17,11 @@
                 <%@imageURL = VoteLog.where(studentID: @winner).pluck(:image).to_s%>
                 <%=puts "hi here!!", @imageURL%>
 
-                <%if !@imageURL%>
-                    <p><%=link_to @winnerID, @imageURL%></p>
-                <%else%>
-                    <p><%=@winnerID%>  사진이 없습니다</p>
-                <%end%>
+                <%# <%if !@imageURL.nil?%>
+                    <p> <%= @winnerID%></p>
+                <%# <%else%> 
+                    <%# <p><%=@winnerID%>
+                <%# <%end%> 
             <% end %> 
             
                 
