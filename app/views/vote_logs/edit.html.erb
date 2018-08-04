@@ -1,9 +1,10 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Destroy', @vote_log, class: "pass", method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to 'Destroy', @vote_log, class: "pass searchbtn", method: :delete, data: {confirm: "Are you sure?"} %>
 
-<%= link_to 'Back', vote_logs_path %>
-
+<%= link_to 'Back', vote_logs_path, class: "searchbtn"%>
+</div>
 
 <script>
   var pass = document.querySelector(".pass");
