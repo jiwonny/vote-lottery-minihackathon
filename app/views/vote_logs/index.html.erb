@@ -4,7 +4,10 @@
     투표와 함께하는 즐거움<br>
     실시간 로또 참여인수
     <%# 투표 인원수 %>
-    <p id="counter1"></p>
+    <div class="d-flex justify-content-center">
+      <p id="counter1"></p>
+      <i class="fas fa-sync-alt"></i>
+    </div>
     <%= button_to "응모하기", new_vote_log_path, :class => "btn btn-outline-secondary btn_vote", :method => :get %>
   </div>
   
@@ -57,6 +60,10 @@ var votenum = '<%=@num%>';
 
 new numberCounter("counter1", votenum);
 
+$("#loading").on("click", function() {
+
+     $("#result").load("/vote_logs");
+    });
 </script>
 <%#= link_to 'New Vote Log', new_vote_log_path %>
 
