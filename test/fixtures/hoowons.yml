@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  thing: MyText
+  given: MyString
 
 two:
   name: MyString
-  thing: MyText
+  given: MyString
