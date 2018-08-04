@@ -1,21 +1,17 @@
 class LottosController < ApplicationController
   before_action :set_lotto, only: [:show, :edit, :update, :destroy]
+ 
 
-  # GET /lottos
   # GET /lottos.json
   def index
-    @lottos = Lotto.all
-    if current_user && current_user.admin?
-      Lotto.all
-    else
-      redirect_to user_session_path
-    end
+    @lotto = Lotto.last
     
   end
 
   # GET /lottos/1
   # GET /lottos/1.json
   def show
+    $total = VoteLog.all.count
    ## 임시코드 xxx
     #for k in 0..@lotto.winnum.to_i
     #  instance_variable_set "@winner_#{k}" , Voter.where(id: $result[k]).pluck(:studentid).to_s.gsub('{"studentid"=>','').gsub('}','')
@@ -38,25 +34,34 @@ class LottosController < ApplicationController
   # POST /lottos.json
   def create
     @lotto = Lotto.new(lotto_params)
+    
+    
+    $winnerarray = []
+    @totalNum = VoteLog.all.count
+    @cnt = 0
 
-    $resultt = []
-    while $resultt.count < @lotto.winnum.to_i 
-      $index = rand(1..Voter.all.count).to_i
-      r= Voter.where(id: $index).pluck(:studentid).to_s
-      $resultt.append(r)
-    end
-    $resultt.uniq!  #중복값아닌지 확실히 확인!
 
-  # 임시코드
-    #@array = (1..Voter.all.count).to_a
-    #$result = @array.sample(@lotto.winnum.to_i).sort
-  
-  # 테스트코드 xxx
-    #auto_arrays = Array.new
-    #while auto_arrays.size < @lotto.winnum
-    #  auto_arrays << @array.sample
-    #end
-    #auto_arrays.uniq!
+    if @lotto.winnum.to_i > VoteLog.count
+      $winnerarray.append("ERROR! 응모자 수 < 당첨자 수")
+     
+    
+    else
+      while @cnt<@lotto.winnum.to_i
+        @ranNum = rand(0..@totalNum)
+        @dangchumID = VoteLog.where(id: @ranNum).pluck(:studentid)
+
+        #랜덤으로 뽑힌 id가 실제로도 존재하는 지 확인, 뽑힌 id가 다시 뽑히지 않았나 확인
+        if VoteLog.exists?(id:@ranNum) &&  !($winnerarray.include? @dangchumID)
+          $winnerarray.append(@dangchumID)
+          @cnt = @cnt+1  
+        end
+      end
+      
+    end    
+    
+
+    
+
 
     respond_to do |format|
       if @lotto.save

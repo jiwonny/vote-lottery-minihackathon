@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 20180803081608) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "log_id"
+    t.index ["log_id"], name: "index_school_dbs_on_log_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,14 +104,6 @@ ActiveRecord::Schema.define(version: 20180803081608) do
     t.string   "image"
     t.string   "phoneNum"
     t.string   "password"
-  end
-
-  create_table "voters", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "studentid"
-    t.integer  "phonenum"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

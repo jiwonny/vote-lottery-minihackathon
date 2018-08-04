@@ -1,5 +1,5 @@
 @import "bootstrap";
-//------------------header--------------------
+//------------------font 정리--------------------
 
 
 @font-face { font-family: 'WONTitle'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/WONTitle.woff') format('woff'); font-weight: normal; font-style: normal; }
@@ -8,8 +8,133 @@
 
 @font-face { font-family: 'GyeonggiBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
 
+@font-face { font-family: 'TmonMonsori'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff'); font-weight: normal; font-style: normal; }
 
-//------------------header 끝-----------------
+//------------------image효과 시작-------------
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500,700);
+.snip1273 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  float: left;
+  margin: 2%;
+  width: 28%;
+  color: #ffffff;   
+  text-align: left;
+  font-size: 16px;
+  background-color: rgba(63, 56, 56, 0.883);
+}
+.snip1273 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+}
+
+.snip1273 figcaption {
+    display: flex;
+    text-align: center;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  padding: 20px 30px;
+}
+.snip1273 figcaption:before,
+.snip1273 figcaption:after {
+  width: 1px;
+  height: 0;
+}
+.snip1273 figcaption:before {
+  right: 0;
+  top: 0;
+}
+.snip1273 figcaption:after {
+  left: 0;
+  bottom: 0;
+}
+.snip1273 h3,
+.snip1273 p {
+  line-height: 1.5em;
+}
+.snip1273 h3 {
+  margin: 0 0 5px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.snip1273 p {
+  font-size: 1.05em;
+  font-weight: 500;
+  margin: 0 0 15px;
+}
+.snip1273 a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+.snip1273:before,
+.snip1273:after,
+.snip1273 figcaption:before,
+.snip1273 figcaption:after {
+  position: absolute;
+  content: '';
+  background-color: #ffffff;
+  z-index: 1;
+  -webkit-transition: all 0.4s ease-in;
+  transition: all 0.4s ease-in;
+  opacity: 0.8;
+}
+.snip1273:before,
+.snip1273:after {
+  height: 1.4px;
+  width: 0%;
+}
+.snip1273:before {
+  top: 0;
+  left: 0;
+}
+.snip1273:after {
+  bottom: 0;
+  right: 0;
+}
+.snip1273:hover img,
+.snip1273.hover img {
+  opacity: 0.4;
+}
+.snip1273:hover figcaption,
+.snip1273.hover figcaption {
+  opacity: 1;
+}
+.snip1273:hover figcaption:before,
+.snip1273.hover figcaption:before,
+.snip1273:hover figcaption:after,
+.snip1273.hover figcaption:after {
+  height: 100%;
+}
+.snip1273:hover:before,
+.snip1273.hover:before,
+.snip1273:hover:after,
+.snip1273.hover:after {
+  width: 100%;
+}
+.snip1273:hover:before,
+.snip1273.hover:before,
+.snip1273:hover:after,
+.snip1273.hover:after,
+.snip1273:hover figcaption:before,
+.snip1273.hover figcaption:before,
+.snip1273:hover figcaption:after,
+.snip1273.hover figcaption:after {
+  opacity: 0.1;
+}
+/* ------------------img효과 끝--------------- */
 
 
 //------------------main-----------------------
@@ -34,14 +159,12 @@
     color: #707070;
     text-align: center;
     font-size: 20px;
-    font-family:"NanumSquareround";
 }
 
 //인원수 counter
 #counter1{
     font-size: 23px;
     font-weight: 500;
-    font-family:"NanumSquareround";
 }
 
 .btn_vote{//응모하기 버튼
@@ -49,18 +172,18 @@
     background-color: white;
 }
 
-.images{
-    //align-items: stretch;
-    margin-top: 1.5rem;
-    margin-right: 0.8rem;
-    margin-left: 0.8rem;
-}
+// .images{
+//     //align-items: stretch;
+//     margin-top: 1.5rem;
+//     margin-right: 0.8rem;
+//     margin-left: 0.8rem;
+// }
 
 //main 내//-----------------vote_log---------
 .vote_img{
-    width: 28%;
-    height: 100%;
-    margin: 2%;
+    position: relative;
+     max-width: 100%;
+     vertical-align: top;
 }
 
 
@@ -98,7 +221,6 @@
 
 .howto_text_title{
     font-size: 20px;
-    font-family: "NanumSquareround"
 }
 
 .howto_text_title2{
@@ -118,29 +240,21 @@
 //--------------header---------------------
 .headerfont{
     font-family: "WONTitle";
-    font-size: 22px;
+    font-size: 18px;
     line-height: 35px;
-    color: black;
-    
+    background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 }
 
 @media screen and (max-width: 380px){
     .headerfont{
         font-size: 19.4px;
+        
     }
 }
 
-.normalfont {
-    font-family:"NanumSquareround";
-    font-size: 15px;
-    color: black;
-}
 
-.navcontent {
-    line-height: 27px;  
-    display: flex;
-    align-items: center;
-}
 
 .line {
     width: 40px;
@@ -150,7 +264,6 @@
 }
 
 .scrollToTop{
-    font-family: "NanumSquareround";
     width:100px; 
     height:130px;
     padding:10px; 
@@ -167,4 +280,136 @@
 .scrollToTop:hover{
     text-decoration:none;
 }
-//----------------header 끝---------------
+//-------------header 끝----------------------
+
+// Lotto Index Page 
+// 카운트다운 타이머 -----------------------
+#timer {
+    margin-top: 100px;
+}
+
+ul#example {
+    list-style: none;
+    margin: 50px 0;
+    padding: 0;
+    display: block;
+    text-align: center;
+  }
+  
+  ul#example li { display: inline-block; }
+  
+  ul#example li span {
+    font-size: 50px;
+    font-weight: 300;
+    line-height: 45px;
+  }
+  
+  ul#example li.seperator {
+    font-size: 40px;
+    line-height: 35px;
+    vertical-align: top;
+  }
+  
+  ul#example li p {
+    color: #a7abb1;
+    font-size: 15px;
+  }
+
+  ul#example li.title {
+    font-family: "WONTitle";
+    color: #a7abb1;
+    font-size: 30px;
+  }
+//------------------------------타이머 끝//
+
+//---------당첨자명단
+#winnerbox {
+    margin: 0px 30px;
+    background: #f1efed;
+    height: 300px;
+}
+
+//모바일 fontsize test
+@media screen and (max-width:600px) {
+    #winnerbox {
+      font-size: 12px
+    }
+    h4.lottitle {
+        font-size: 15px
+      }
+  }
+  .titlel {
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    font-size: 20px;
+    margin: 60px 0 60px;
+ }
+ .titlel::after {
+    content: "";
+    width: 190px;
+    position: absolute;
+    margin: 0 auto;
+    height: 3px;
+    background: rgb(114, 16, 16);
+    left: 0;
+    right: 0;
+    bottom: -15px;
+ 
+ }
+
+ //---------------------------------------
+ //----------footer 관련 css--------------
+ $brand-light: #fff;
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  height: 100vh;
+}
+footer {
+  height: 150px;
+  background-image: linear-gradient( 33.2deg,  rgba(157,147,247,1) 30.2%, rgba(117,176,247,1) 61.4% );
+  position: relative;
+  .footer__inner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 5px 8px;
+    width: 100%;
+    * {
+      color: white;
+    }
+  }
+  .logo {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin-bottom: 40px;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform, opacity;
+    transition-duration: .8s;
+    transition-timing-function: ease;  
+    
+    &.show{
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+//--------body font입니다. css 가장 마지막에 두세요!-----------
+.body {
+  font-family: 'NanumSquareround'
+}
