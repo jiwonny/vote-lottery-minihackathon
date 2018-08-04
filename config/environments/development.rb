@@ -9,6 +9,9 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  # for korean
+  config.i18n.default_locale = :ko
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

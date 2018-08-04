@@ -1,0 +1,95 @@
+
+    <%= form_for(vote_log) do |f| %>
+      <% if vote_log.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(vote_log.errors.count, "error") %> prohibited this vote_log from being saved:</h2>
+
+          <ul>
+          <% vote_log.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+<p>
+	<span class="input">
+		<input type="text" placeholder="Gradient border focus fun">
+		<span></span>	
+	</span>
+</p>
+
+        <div class="field">
+            <span>학번<%= f.text_field :studentID, id: "studentID", class: "vote-new-inbox"%></span>
+        </div>
+
+        <div class="field">
+          <span>이름</span>
+          <%= f.text_field :name, id: "name", class: "vote-new-inbox" %>    
+        </div>
+        <p id = "check-warning">본인 인증과 중복 확인을 위해 인증 버튼을 눌러주세요!</p>
+        <button type = "button" id = "checkButton">인증하기</button>
+      
+        <div class="field">
+          <span>핸드폰 번호</span>
+          <%= f.text_field :phoneNum, id: "phoneNum", class: "vote-new-inbox"%>
+        </div>
+
+        <div class="field">
+          <span>비밀번호</span>     <!--비밀번호 id 잘 들어갔는지 확인!-->
+          <%= f.password_field :password, id: "password", class: "vote-new-inbox"%>
+        </div>
+
+      <div class="field">
+        <!--<%= f.label :image %>-->
+        <span>인증사진</span>
+        <%= f.file_field :image,
+          accept: 'image/png, image/gif, image/jpeg' %>
+      </div>
+
+
+    <!--중복 확인된 경우에만 활성화!  안 된 경우에는 중복확인을 해 주세요 나타나있게 하기-->
+      <div class="actions" id = "buttonDiv">
+        <%= f.submit "응모하기", id: "submitButton"%>
+        <p>아직 인증하지 않았습니다</p>
+      </div>
+    <% end %>
+ 
+
+<script>
+  document.getElementById("submitButton").disabled = true;
+  
+  document.getElementById("checkButton").addEventListener("click", function(){
+      
+    //get element by ID
+    var studentIdIn = document.getElementById("studentID").value;
+    var nameIn = document.getElementById("name").value;
+    $.ajax({
+      async : true,
+      type : "POST",
+      data : {studentID : studentIdIn, name : nameIn},
+      url : "checkDouble",
+      dataType : "json",
+      success : function(data){
+        
+        console.log(data);
+      
+      
+        if (data["IsStudent"] == 0){
+            document.getElementById("check-warning").innerHTML = "본교 학생이 아닙니다ㅠㅠ";
+        }
+        else if (data["IsFirst"] == 0){
+            document.getElementById("check-warning").innerHTML = "이미 참여하셨습니다ㅠㅠㅠ";
+        }
+        else if (data["IsStudent"] ==1 && data["IsFirst"] == 1){
+          document.getElementById("check-warning").innerHTML = "인증이 성공했습니다!";
+          document.getElementById("submitButton").disabled = false;
+          //document.getElementById("buttonDiv").removeChild("p");
+        }
+        
+    }
+    })
+    
+  })
+</script>
