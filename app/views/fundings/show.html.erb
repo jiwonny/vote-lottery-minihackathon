@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>이름:</strong>
+  <%= @funding.name %>
+</p>
+
+<p>
+  <strong>후원해주시는 것:</strong>
+  <%= @funding.given %>
+</p>
+
+<%= link_to '편집', edit_funding_path(@funding) %> |
+<%= link_to '확인', fundings_path %>

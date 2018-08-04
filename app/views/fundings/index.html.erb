@@ -1,0 +1,46 @@
+<p id="fundings"><%= notice %></p>
+<head>
+<style>
+	#box1 { text-align: right; }
+	#box2 { text-align: left; }
+	#box3 { text-align: center; }
+	
+	.centered { display: table; margin-left: auto; margin-right: auto; }
+
+</style>
+</head>
+
+<body>
+<div id="box3"><h1>후원해주신 분들</h1></div><br><br>
+
+<table id="box3" class="centered">
+  <thead>
+    <tr>
+      <th>이름</th>
+      <th>후원물품</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fundings.each do |funding| %>
+      <tr>
+        <td><%= funding.name %></td>
+        <td><%= funding.given %></td>
+        <!--<td><%= link_to '자세히보기', funding %></td>-->
+        <!--<td><%= link_to '편집', edit_funding_path(funding) %></td>-->
+        <!--<td><%= link_to '삭제', funding, method: :delete, data: { confirm: '삭제하시겠습니까?' } %></td>-->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br><br>
+
+<!-- <button><%= link_to '새로운 명단 작성하기', new_funding_path %></button> <br><br>-->
+
+<div id="box3"><a href="https://project-cho-creative12.c9users.io/help/support"><button>👉 후원방법 👈
+</button></a></div>
+
+</body>

@@ -1,0 +1,51 @@
+@import 'bootstrap';
+
+@font-face { font-family: 'WONTitle'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/WONTitle.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'NanumSquareRound'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+@font-face { font-family: 'GyeonggiBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
+
+.headerfont{
+    font-family: "WONTitle";
+    font-size: 20px;
+    line-height: 35px;
+    color: black;
+}
+
+.normalfont {
+    font-family:"NanumSquareround";
+    font-size: 15px;
+    color: black;
+}
+
+.navcontent {
+    line-height: 27px;  
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    width: 40px;
+    height: 2px;
+    background: rgb(151, 46, 46);
+    line-height: 18px;
+}
+
+.scrollToTop{
+    font-family: "NanumSquareround";
+    width:100px; 
+    height:130px;
+    padding:10px; 
+    text-align:center; 
+    background: whiteSmoke;
+    color: #444;
+    text-decoration: none;
+    position: flex;
+    top:75px;
+    right:40px;
+    display:none;
+}
+.scrollToTop:hover{
+    text-decoration:none;
+}
