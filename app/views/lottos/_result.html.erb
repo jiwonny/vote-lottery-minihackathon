@@ -14,7 +14,7 @@
             <% for n in 0...@lotto.winnum.to_i %>
                 <%@winnerID = $winnerarray[n][0]%>
 
-                <%@imageURL = VoteLog.where(studentID: @winner).pluck(:image).to_s%>
+                <%@imageURL = VoteLog.where(studentID: @winnerID).pluck(:image).to_s%>
                 <%=puts "hi here!!", @imageURL%>
 
                 <%if !@imageURL%>
