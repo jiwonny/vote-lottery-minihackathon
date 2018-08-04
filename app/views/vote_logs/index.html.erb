@@ -6,7 +6,6 @@
     <%# 투표 인원수 %>
     <div class="d-flex justify-content-center">
       <p id="counter1"></p>
-      <i class="fas fa-sync-alt"></i>
     </div>
     <%= button_to "응모하기", new_vote_log_path, :class => "btn btn-outline-secondary btn_vote", :method => :get %>
   </div>
@@ -19,25 +18,24 @@
   <p id="notice"><%= notice %></p>
 
   <%#= link_to '응모하기', new_vote_log_path %>
-  <div id = "searching">
-  <div class="row justify-content-between">
-  <% countvar = 0%>
-    <% @vote_logs.each do |vote_log| %>
-      <% break if countvar == 99 %>
-      <figure class="snip1273">
-        <%= image_tag vote_log.image , class: "vote_img"%>
-        <figcaption>
-          <p>
-          <%= link_to 'Destroy', vote_log, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </p>
-          <p>
-          <%= link_to 'Edit', edit_vote_log_path(vote_log) %></p>
-        </figcaption>
-      </figure>
-      <% countvar = countvar + 1%>
-   <% end %>
-  </div>
-  </div>
+    <div class="row row_index">
+    <% countvar = 0%>
+      <% @vote_logs.each do |vote_log| %>
+        <% break if countvar == 99 %>
+        <%if countvar%3 == 2%>
+          <figure class="snip1273 third_img">
+            <%= image_tag vote_log.image , class: "vote_img"%>
+          </figure>
+        <% else %>
+          <figure class="snip1273">
+            <%= image_tag vote_log.image , class: "vote_img"%>
+          </figure>
+        <% end %>
+        <% countvar = countvar + 1%>
+    <% end %>
+    </div>
+  
+
 
   <%#= paginate @vote_logs %>
   
@@ -49,6 +47,16 @@
 </div>
 
 <script>
+
+  var okay= document.querySelectorAll(".vote_img");
+
+for (var i = 0; i < okay.length; i++) {
+    okay[i].addEventListener('click', function(event) {
+        alert("안녕");
+        });
+    }
+
+
   function numberCounter(target_frame, target_number) {
     this.count = 0; this.diff = 0;
     this.target_count = parseInt(target_number);
@@ -77,29 +85,5 @@ var votenum = '<%=@num%>';
 new numberCounter("counter1", votenum);
 //vote count 끝---------------------
 
-//-----------------loading시작
-$("#loading").on("click", function() {
-
-     $("#result").load("vote_logs");
-    });
-
-//----------------loading 끝
-
-
-//----------이미지 효과
- /* Demo purposes only */
-  $(".hover").mouseleave(
-    function () {
-      $(this).removeClass("hover");
-    }
-  );
-
-//----------이미지 효과 끝
-
-
-//----------검색----------
-
-//------------------------
 </script>
 <%#= link_to 'New Vote Log', new_vote_log_path %>
-
