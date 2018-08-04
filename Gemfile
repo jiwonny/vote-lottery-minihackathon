@@ -5,6 +5,23 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# 구글 맵 gem
+gem 'gmaps4rails'
+
+# 무한 스크롤
+gem 'will_paginate', '~> 3.0.7'
+
+gem 'devise-i18n'
+gem 'rails_admin'
+gem 'devise'
+gem 'carrierwave', '~> 1.0' 
+gem 'mini_magick'
+gem 'fog-aws'
+gem 'figaro'
+gem 'kaminari'
+
+gem 'bootstrap', '~> 4.1.3'
+gem 'rails_db', '2.0.2'
 
 #부트스트랩
 gem 'bootstrap', '~> 4.1.3'
@@ -37,13 +54,12 @@ gem 'coffee-rails', '~> 4.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -64,3 +80,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'rails_db', '2.0.2'
+
+

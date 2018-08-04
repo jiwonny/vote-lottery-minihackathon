@@ -1,0 +1,161 @@
+<HTML>
+  <HEAD>
+
+
+  <style>
+    ul {
+      list-style: none;
+      }
+    .Banner {
+        height: auto;
+        width: 100%;
+    }
+  </style>
+  </HEAD>
+ 
+  <BODY>
+    <p id="notice"><%= notice %></p>
+    
+    <div class="container">
+        <table>
+            <% @pledges.each do |pledge| %>
+            
+                <tr>
+                <td><%= link_to image_tag("#{pledge.image}", class: "Banner"), pledge %></td>
+                </tr>
+        </table>
+                <%= link_to '확인', pledge %> |
+                <%= link_to '변경', edit_pledge_path(pledge) %> |
+                <%= link_to '삭제', pledge, method: :delete, data: { confirm: '삭제하시겠습니까?' } %>
+            
+            <br><br>
+            
+            <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
+                <p id="spreadBtn1" class="btn01" style="font-size: 40px"><%= pledge.title %></p>
+            <div id="hiddenList1" class="example01 shadow p-3 mb-5 bg-light rounded container" style="display: none; font-size: 20px">
+                <p> <%= pledge.content.split(",") %> </p>
+            </div>
+
+            <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
+            <p id="spreadBtn2" class="btn02" style="font-size: 40px"><%= pledge.content %></p>
+            <div id="hiddenList2" class="example02 shadow p-3 mb-5 bg-light rounded container" style="display: none; font-size: 20px">
+                <p> 함께라면 가능한_연대! </p>
+                <ul>
+                    <li>총장 직선제 요구</li>
+                    <li>대학생 근로문제 해결</li>
+                    <li>청소/주차/경비 노동자오의 연대</li>
+                </ul>
+            </div>
+
+            <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
+            <p id="spreadBtn3" class="btn03" style="font-size: 40px"><%= pledge.content2 %></p>
+            <div id="hiddenList3" class="example03 shadow p-3 mb-5 bg-light rounded" style="display: none; font-size: 20px">
+                <p> 일상 속에 스며드는_인권! </p>
+                <ul>
+                    <li>월별 인권 프로젝트 - 여성 '월경권' 보장, 장애학생 수업권 확보</li>
+                    <li>성폭행 사건 피해자 보호방안 강구 및 가해자 처벌 강화</li>
+                    <li>양성평등센터 및 인권센터 개선</li>
+                    <li>교원윤리규정 개정 요구</li>
+                    <li>화장실 몰래카메라 전수조사 정례화</li>
+                    <li>인권침해사건 사료연구집 제작</li>      
+                </ul>
+            </div>
+            <% end %>
+
+    <% if current_user && current_user.admin? %>
+      <%= link_to '공약 등록하기', new_pledge_path%>
+    <% end %>       
+    
+    </div>
+  </BODY>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+  <script src="myscripts.js"></script>
+  <script>
+  $(document).ready(function(){
+      $("#spreadBtn1").click(function(){
+          if($("#hiddenList1").is(":visible")){
+              $("#hiddenList1").slideUp();
+          }else{
+              $("#hiddenList1").slideDown();
+          }
+      });
+  }); 
+  $(document).ready(function(){
+      $("#spreadBtn2").click(function(){
+          if($("#hiddenList2").is(":visible")){
+              $("#hiddenList2").slideUp();
+          }else{
+              $("#hiddenList2").slideDown();
+          }
+      });
+  });
+  $(document).ready(function(){
+      $("#spreadBtn3").click(function(){
+          if($("#hiddenList3").is(":visible")){
+              $("#hiddenList3").slideUp();
+          }else{
+              $("#hiddenList3").slideDown();
+          }
+      });
+  });
+  </script>
+  <style>
+    ul {
+      list-style: none;
+      }
+    .Banner {
+        height: auto;
+        width: 100%;
+    }
+  </style>
+  </HEAD>
+ 
+  <BODY>
+    <p id="notice"><%= notice %></p>
+    
+    <div class="container">
+        <table>
+            <% @pledges.each do |pledge| %>
+                <tr>
+                <td><%= link_to image_tag("#{pledge.image}", class: "Banner"), pledge %></td>
+                </tr>
+        </table>
+                <%= link_to '확인', pledge %> |
+                <%= link_to '변경', edit_pledge_path(pledge) %> |
+                <%= link_to '삭제', pledge, method: :delete, data: { confirm: '삭제하시겠습니까?' } %>
+            
+            <br><br>
+            
+            <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
+                <p id="spreadBtn1" class="btn01" style="font-size: 40px"><strong> 하나! </strong><%= pledge.title %></p>
+            <div id="hiddenList1" class="example01 shadow p-3 mb-5 bg-light rounded container" style="display: none; font-size: 20px">
+                <% @list = pledge.content.split(",") %>
+                <% i = 0 %>
+                <% for x in @list %>
+                    <%= i = i + 1 %> <%= ". #{x}" %> <p> </p>
+                <% end %>
+            </div>
+
+            <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
+            <p id="spreadBtn2" class="btn02" style="font-size: 40px"><strong> 둘! </strong><%= pledge.title2 %></p>
+            <div id="hiddenList2" class="example02 shadow p-3 mb-5 bg-light rounded container" style="display: none; font-size: 20px">
+                <% @list2 = pledge.content2.split(",") %>
+                <% i = 0 %>
+                <% for x in @list2 %>
+                    <%= i = i + 1 %> <%= ". #{x}" %> <p> </p>
+                <% end %>
+            </div>
+
+            <div style="background-color: #7D2222; width: 60px; height: 5px;"></div>
+            <p id="spreadBtn3" class="btn03" style="font-size: 40px"><strong> 셋! </strong><%= pledge.title3 %></p>
+            <div id="hiddenList3" class="example03 shadow p-3 mb-5 bg-light rounded" style="display: none; font-size: 20px">
+                <% @list3 = pledge.content3.split(",") %>
+                <% i = 0 %>
+                <% for x in @list3 %>
+                    <%= i = i + 1 %> <%= ". #{x}" %> <p> </p>
+                <% end %>
+            </div>
+            <% end %>
+    <%= link_to '공약 등록하기', new_pledge_path%>
+    </div>
+  </BODY>

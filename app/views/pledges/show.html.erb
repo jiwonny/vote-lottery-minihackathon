@@ -1,0 +1,65 @@
+
+<head>
+  <style>
+  .inner_banner {
+    height:30%; 
+    width: 100%;
+  }
+  </style>
+<head>
+
+<body>
+  <div class="container">
+    <p id="notice"><%= notice %></p>    
+    <%= image_tag("#{@pledge.image}", :class => "inner_banner") %>
+    <h1 style="text-align: center">공약 한줄 요약 안내</h1>
+
+    <div class="first_pledge">
+      <p>
+        <strong>Q1. 첫 번재 공약</strong>
+      </p>
+
+      <p>
+        제목: <%= @pledge.title %>
+      </P>
+
+      <p>
+        세부 설명: <%= @pledge.content %>
+      </p>
+    </div>
+
+    <div class="second_pledge">
+      <p>
+        <strong>Q2. 두 번재 공약</strong>
+      </p>
+
+      <p>
+        제목: <%= @pledge.title2 %>
+      </P>
+
+      <p>
+        세부 설명: <%= @pledge.content2 %>
+      </p>
+    </div>
+
+    <div class="third_pledge">
+      <p>
+        <strong>Q3. 세 번재 공약</strong>
+      </p>
+
+      <p>
+        제목: <%= @pledge.title3 %>
+      </P>
+
+      <p>
+        세부 설명: <%= @pledge.content3 %>
+      </p>
+    </div>
+
+  </div>
+</body>
+<footer class="navbar fixed-bottom navbar-light bg-light">
+  <%= link_to '수정', edit_pledge_path(@pledge) %> |
+  <%= link_to '삭제', @pledge, method: :delete, data: { confirm: '관리자님 지우시겠어요?' } %> |
+  <%= link_to '뒤로가기', pledges_path %> 
+</footer>

@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180804202758) do
+=======
+ActiveRecord::Schema.define(version: 20180803081608) do
+>>>>>>> f2831c49a22001fffb7bf1fe0044854d9352c186
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +41,7 @@ ActiveRecord::Schema.define(version: 20180804202758) do
     t.datetime "updated_at",                       null: false
     t.string   "firstwinner"
     t.text     "resultnum",   default: "--- []\n"
+<<<<<<< HEAD
   end
 
   create_table "pledgenewees", force: :cascade do |t|
@@ -79,6 +84,30 @@ ActiveRecord::Schema.define(version: 20180804202758) do
     t.string   "image"
     t.string   "image2"
     t.string   "name"
+=======
+    t.text     "lotarray"
+  end
+
+  create_table "pledgeintros", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.text     "content2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+  end
+
+  create_table "pledges", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+    t.text     "content2"
+    t.string   "title2"
+    t.string   "title3"
+    t.text     "content3"
+>>>>>>> f2831c49a22001fffb7bf1fe0044854d9352c186
   end
 
   create_table "routers", force: :cascade do |t|
@@ -125,4 +154,15 @@ ActiveRecord::Schema.define(version: 20180804202758) do
     t.string   "password"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "voters", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "studentid"
+    t.integer  "phonenum"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+>>>>>>> f2831c49a22001fffb7bf1fe0044854d9352c186
 end
