@@ -20,12 +20,15 @@
 
   <%#= link_to '응모하기', new_vote_log_path %>
   
-  <div class="images">
-    <div class="row justify-content-between">
-      <% @vote_logs.each do |vote_log| %>
+  <div class="row justify-content-between">
+    <% @vote_logs.each do |vote_log| %>
+    <figure class="snip1273">
       <%= image_tag vote_log.image , class: "vote_img"%>
-    <% end %>
-    </div>
+      <figcaption>
+          <p><%=vote_log.name%></p>
+      </figcaption>
+    </figure>
+  <% end %>
   </div>
 
   <%= paginate @vote_logs %>
@@ -59,11 +62,27 @@
 var votenum = '<%=@num%>';
 
 new numberCounter("counter1", votenum);
+//vote count 끝---------------------
 
+//-----------------loading시작
 $("#loading").on("click", function() {
 
-     $("#result").load("/vote_logs");
+     $("#result").load("vote_logs");
     });
+
+//----------------loading 끝
+
+
+//----------이미지 효과
+ /* Demo purposes only */
+  $(".hover").mouseleave(
+    function () {
+      $(this).removeClass("hover");
+    }
+  );
+
+//----------이미지 효과 끝
+
 </script>
 <%#= link_to 'New Vote Log', new_vote_log_path %>
 
