@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   #post 'home/result'
   #get 'home/result'
 
-  root 'home#index'   
+  # root 'home#index'   
   get '/faq' => 'home#faq'
 
   get '/routers' => 'routers#index'

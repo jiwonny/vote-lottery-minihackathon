@@ -5,6 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# 구글 맵 gem
+gem 'gmaps4rails'
+
+# 무한 스크롤
+gem 'will_paginate', '~> 3.0.7'
+
 gem 'devise-i18n'
 gem 'rails_admin'
 gem 'devise'
@@ -61,6 +67,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'rails_db', '2.0.2'
-gem 'gmaps4rails'
 
 
