@@ -19,7 +19,7 @@
   <p id="notice"><%= notice %></p>
 
   <%#= link_to '응모하기', new_vote_log_path %>
-  
+  <div id = "searching">
   <div class="row justify-content-between">
   <% countvar = 0%>
     <% @vote_logs.each do |vote_log| %>
@@ -27,11 +27,16 @@
       <figure class="snip1273">
         <%= image_tag vote_log.image , class: "vote_img"%>
         <figcaption>
-            <p><%=vote_log.name%></p>
+          <p>
+          <%= link_to 'Destroy', vote_log, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
+          <p>
+          <%= link_to 'Edit', edit_vote_log_path(vote_log) %></p>
         </figcaption>
       </figure>
       <% countvar = countvar + 1%>
    <% end %>
+  </div>
   </div>
 
   <%#= paginate @vote_logs %>
@@ -40,9 +45,6 @@
     <%= text_field_tag :studentID, params[:studentID], placeholder: "학번을 입력하세요" %>
     <%= submit_tag 'Search', name: nil, class: "searchbtn" %>
   <% end %>
-
-  
-
 
 </div>
 
@@ -96,9 +98,7 @@ $("#loading").on("click", function() {
 
 
 //----------검색----------
-  $(".searchbtn").on("click", function(){
-    
-  });
+
 //------------------------
 </script>
 <%#= link_to 'New Vote Log', new_vote_log_path %>
