@@ -1,48 +1,8 @@
-
-  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
-<<<<<<< HEAD
 
-=======
->>>>>>> 44203014eb70dd7680faec7a9ada6c7439877304
-  <script>
-    $(document).ready(function(){
-    //Check to see if the window is top if not then display button
-        $(window).scroll(function(){
-            if ($(this).scrollTop() > 100) {
-                $('.scrollToTop').fadeIn();
-            } else {
-                $('.scrollToTop').fadeOut();
-            }
-        });
-
-    //Click event to scroll to top
-    $('.scrollToTop').click(function(){
-        $('html, body').animate({scrollTop : 0},800);
-        return false;
-        });
-    });
-    jQuery(function($) {
-        $("body").css("display", "none");
-        $("body").fadeIn(2000);
-        $("a.transition").click(function(event){
-        event.preventDefault();
-        linkLocation = this.href;
-        $("body").fadeOut(1000, redirectPage);
-        });
-        function redirectPage() {
-        window.location = linkLocation;
-        }
-    });
-  </script>
 
 <nav class="navbar navbar-light">
-<<<<<<< HEAD
-  <a class="navbar-brand headerfont" href="/">고려대학교 제51대 총학생회 :<br>2019 선거 로또</a>
-=======
   <a class="navbar-brand headerfont" href="vote_logs">고려대학교 제51대 총학생회 :<br>2019 선거 로또</a>
->>>>>>> 44203014eb70dd7680faec7a9ada6c7439877304
   <button id="humbug" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" aria-expanded="false">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -70,9 +30,5 @@
 </nav>
 
 
-<br>
-<br>
-<a href="#" class="scrollToTop">Top</a>
-<br>
-<br>
-<br>
+
+

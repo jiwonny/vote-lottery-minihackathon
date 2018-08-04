@@ -6,10 +6,21 @@ class VoteLogsController < ApplicationController
   # GET /vote_logs
   # GET /vote_logs.json
   def index
+
+    @vote_logs = if params[:studentID]
+      #검색 기능.
+      VoteLog.where(" #{:studentID} LIKE ? ", params[:studentID])
+    else
+      VoteLog.order("created_at DESC").page params[:page]
+    end 
     @vote_num = VoteLog.all
-    @vote_logs = VoteLog.order("created_at DESC").page params[:page]
     @num = @vote_num.length
     
+    # @vote_logs = VoteLog.order("created_at DESC").page params[:page]
+    # @vote_my = VoteLog.where(" #{:studentID} == ? ", params[:studentID])
+    # puts "============="
+    # puts @vote_my.name
+    # puts "============="
   end
 
   # GET /vote_logs/1
@@ -102,6 +113,7 @@ class VoteLogsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   get '/faq' => 'home#faq'
   get '/routers' => 'routers#index'
-
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin' # merge할 때 제일 마지막줄에 위치하게 해주세요!!
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
