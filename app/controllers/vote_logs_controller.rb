@@ -6,9 +6,10 @@ class VoteLogsController < ApplicationController
   # GET /vote_logs
   # GET /vote_logs.json
   def index
-    @vote_logs = VoteLog.all
-    @num = @vote_logs.length
-    puts "#{@num}"
+    @vote_num = VoteLog.all
+    @vote_logs = VoteLog.order("created_at DESC").page params[:page]
+    @num = @vote_num.length
+    
   end
 
   # GET /vote_logs/1

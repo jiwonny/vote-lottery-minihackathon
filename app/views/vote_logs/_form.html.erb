@@ -54,14 +54,11 @@
 
 <script>
   document.getElementById("submitButton").disabled = true;
-
-
   document.getElementById("checkButton").addEventListener("click", function(){
       
     //get element by ID
     var studentIdIn = document.getElementById("studentID").value;
     var nameIn = document.getElementById("name").value;
-
     $.ajax({
       async : true,
       type : "POST",
@@ -73,15 +70,12 @@
         console.log(data);
       
       
-
         if (data["IsStudent"] == 0){
             document.getElementById("check-warning").innerHTML = "본교 학생이 아닙니다ㅠㅠ";
         }
-
         else if (data["IsFirst"] == 0){
             document.getElementById("check-warning").innerHTML = "이미 참여하셨습니다ㅠㅠㅠ";
         }
-
         else if (data["IsStudent"] ==1 && data["IsFirst"] == 1){
           document.getElementById("check-warning").innerHTML = "인증이 성공했습니다!";
           document.getElementById("submitButton").disabled = false;
@@ -92,7 +86,4 @@
     })
     
   })
-
-
-
 </script>

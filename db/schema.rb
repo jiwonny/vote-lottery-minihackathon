@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20180803041654) do
     t.text     "resultnum",   default: "--- []\n"
   end
 
-  create_table "pledges", force: :cascade do |t|
+  create_table "pledgeintros", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.text     "content2"
@@ -48,13 +48,32 @@ ActiveRecord::Schema.define(version: 20180803041654) do
     t.string   "image"
   end
 
+  create_table "pledges", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.text     "content2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "image"
+    t.string   "title2"
+    t.string   "title3"
+    t.text     "content3"
+  end
+
+  create_table "routers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "placename"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "school_dbs", force: :cascade do |t|
     t.string   "studentID"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "log_id"
-    t.index ["log_id"], name: "index_school_dbs_on_log_id"
   end
 
   create_table "users", force: :cascade do |t|

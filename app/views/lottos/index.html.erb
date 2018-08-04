@@ -23,6 +23,10 @@
 <% if !$winnerarray.nil?%>
   <%puts "$winner array nil???? : ", $winnerarray%>
   <%= render 'result'%>
+  <%# confetti 테스트 코드 %>
+  <div class="container col-center" id="confetti">
+    <canvas id="canvas"></canvas>
+  </div>
 <% end %>
 
 <!--화면 전환용 버튼, 관리자에게만 보이게-->
@@ -54,10 +58,6 @@
 
 
 
-<%# confetti 테스트 코드 %>
-<div class="container col-center" id="confetti">
-  <canvas id="canvas"></canvas>
-</div>
 
 <style>
 canvas {
