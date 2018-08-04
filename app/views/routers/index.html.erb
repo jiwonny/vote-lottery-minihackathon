@@ -4,7 +4,8 @@
     <div class="howto_bar">
     </div>
     <div class="howto_text_title">
-        고려대학교 제51대 총학생회장단 선거 투표기간
+        고려대학교 제51대 총학생회장단 
+        <br> 선거 투표기간
     </div>
 
     <div class="howto_text_box d-flex align-items-start flex-column">
@@ -21,10 +22,13 @@
     <div class="howto_bar">
     </div>
     <div class="howto_text_title">
-        고려대학교 제51대 총학생회장단 선거 투표장소
+        고려대학교 제51대 총학생회장단 
+        <br> 선거 투표장소
     </div>
 
 <table>
+
+<!-- 구글맵 Marker의 항목 이름들을 가림 - 관리자 모드에서 이걸 건드리기 때문
   <thead>
     <tr>
       <th>Name</th>
@@ -34,6 +38,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
+  -->
 
   <tbody>
   <br>
@@ -56,6 +61,7 @@
       });  
     </script>
 
+<!-- 구글맵 위에 Marker를 만드는 Scaffold를 가림 - 관리자 모드에서 이걸 만들기 때문
     <% @routers.each do |router| %>
       <tr>
         <td><%= router.name %></td>
@@ -67,9 +73,10 @@
         <td><%= link_to 'Destroy', router, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    -->
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Router', new_router_path %>
+<%# <%= link_to 'New Router', new_router_path %>
