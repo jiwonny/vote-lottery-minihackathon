@@ -25,11 +25,18 @@
         <%if countvar%3 == 2%>
           <figure class="snip1273 third_img">
             <%= image_tag vote_log.image , class: "vote_img"%>
+            <i class="far fa-trash-alt"></i>
+            <i class="far fa-edit"></i>
           </figure>
+          
         <% else %>
           <figure class="snip1273">
             <%= image_tag vote_log.image , class: "vote_img"%>
+            <i class="far fa-trash-alt"></i>
+            <i class="far fa-edit"></i>
+
           </figure>
+          
         <% end %>
         <% countvar = countvar + 1%>
     <% end %>
@@ -48,15 +55,18 @@
 
 <script>
 
-  var okay= document.querySelectorAll(".vote_img");
+  // var okay= document.querySelectorAll(".vote_img");
 
-  for (var i = 0; i < okay.length; i++){
-    okay[i].onclick = function(idx) {
-      if(idx < okay.length) {
-        okay[idx].classList.toggle("experiment");}
-    }.bind(okay[i], i);
-  }
+  // for (var i = 0; i < okay.length; i++){
+  //   okay[i].onclick = function(idx) {
+  //     if(idx < okay.length) {
+  //       okay[idx].classList.toggle("experiment");}
+  //   }.bind(okay[i], i);
+  // }
 
+  $(".vote_img").click(function() {
+    $(this).toggleClass("experiment");
+  });
 
   function numberCounter(target_frame, target_number) {
     this.count = 0; this.diff = 0;
