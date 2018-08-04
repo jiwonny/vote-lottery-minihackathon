@@ -6,7 +6,7 @@ class VoteLogsController < ApplicationController
   # GET /vote_logs
   # GET /vote_logs.json
   def index
-
+   
     @vote_logs = if params[:studentID]
       #검색 기능.
       VoteLog.where(" #{:studentID} LIKE ? ", params[:studentID])

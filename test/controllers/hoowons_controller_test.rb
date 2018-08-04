@@ -17,7 +17,7 @@ class HoowonsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create hoowon" do
     assert_difference('Hoowon.count') do
-      post hoowons_url, params: { hoowon: { name: @hoowon.name, thing: @hoowon.thing } }
+      post hoowons_url, params: { hoowon: { given: @hoowon.given, name: @hoowon.name } }
     end
 
     assert_redirected_to hoowon_url(Hoowon.last)
@@ -34,7 +34,7 @@ class HoowonsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update hoowon" do
-    patch hoowon_url(@hoowon), params: { hoowon: { name: @hoowon.name, thing: @hoowon.thing } }
+    patch hoowon_url(@hoowon), params: { hoowon: { given: @hoowon.given, name: @hoowon.name } }
     assert_redirected_to hoowon_url(@hoowon)
   end
 

@@ -37,7 +37,7 @@ class LottosController < ApplicationController
     
     
     $winnerarray = []
-    @totalNum = VoteLog.all.count
+    @totalNum = VoteLog.last.id
     @cnt = 0
 
 
@@ -49,7 +49,7 @@ class LottosController < ApplicationController
       while @cnt<@lotto.winnum.to_i
         @ranNum = rand(0..@totalNum)
         @dangchumID = VoteLog.where(id: @ranNum).pluck(:studentid)
-
+        
         #랜덤으로 뽑힌 id가 실제로도 존재하는 지 확인, 뽑힌 id가 다시 뽑히지 않았나 확인
         if VoteLog.exists?(id:@ranNum) &&  !($winnerarray.include? @dangchumID)
           $winnerarray.append(@dangchumID)

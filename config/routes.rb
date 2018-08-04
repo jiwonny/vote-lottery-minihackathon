@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   #vote_logs routing
   resources :vote_logs
   get 'home/index'
-  root 'vote_logs#index'
   post 'vote_logs/checkDouble' => 'vote_logs#checkDouble'
 
   #pledges routing
@@ -22,6 +21,8 @@ Rails.application.routes.draw do
   get '/participate' => 'participate#index'
   get '/random' => 'lottos#new' 
 
+  get 'home/quiz'     # 임시페이지
+  get 'home/quizcard' # 임시페이지(블라인드공략테스트)
   resources :routers
   resources :voters
   resources :lottos

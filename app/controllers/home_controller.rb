@@ -4,4 +4,8 @@ class HomeController < ApplicationController
 
   def faq
   end
+
+  def quizcard
+    $team = Pledge.all.count
+  end
 end
