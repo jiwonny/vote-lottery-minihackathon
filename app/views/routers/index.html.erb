@@ -1,10 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>고려대학교 총학생회장단 선거 투표기간</h1>
+<div class="container">
+    <div class="howto_bar">
+    </div>
+    <div class="howto_text_title">
+        고려대학교 제51대 총학생회장단 선거 투표기간
+    </div>
+
+    <div class="howto_text_box d-flex align-items-start flex-column">
+           <p class="howto_text_title2">12월 5일(화) ~ 12월 7일(목)</p>
+           <p class="howto_text_title2">투표구는 오전 9시 30분부터 오후 6시 30분까지 운영됩니다.</p>
+    </div>
+
+<%# <h1>고려대학교 총학생회장단 선거 투표기간</h1>
 <p>12월 5일(화) ~ 12월 7일(목)</p>
 <p>투표구는 오전 9시 30분부터 오후 6시 30분까지 운영됩니다.</p>
 
-<h1>고려대학교 총학생회장단 선거 투표장소</h1>
+<h1>고려대학교 총학생회장단 선거 투표장소</h1> %>
+
+    <div class="howto_bar">
+    </div>
+    <div class="howto_text_title">
+        고려대학교 제51대 총학생회장단 선거 투표장소
+    </div>
 
 <table>
   <thead>
@@ -18,9 +36,16 @@
   </thead>
 
   <tbody>
-    <div style='width: 800px;'>  
+  <br>
+    <div style='width: 330px;'>  
+      <div id="map" style='width: 330px; height: 165px;'></div>  
+    </div>
+
+      <%# 원래 구글맵이 제공하는 구글맵 사이즈는 아래임.  %>
+    <%# <div style='width: 800px;'>  
       <div id="map" style='width: 800px; height: 400px;'></div>  
-    </div>  
+    </div>   %>
+
 
     <script type="text/javascript">  
       handler = Gmaps.build('Google');  

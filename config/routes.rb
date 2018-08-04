@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/participate' => 'participate#index'
+
   resources :routers
   resources :voters
   resources :lottos
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
   resources :vote_logs
   resources :pledges
   get 'home/index'
-  root 'home#index'
+  root 'vote_logs#index'
 
   get '/random' => 'lottos#new' 
 
