@@ -1,16 +1,9 @@
 class LottosController < ApplicationController
   before_action :set_lotto, only: [:show, :edit, :update, :destroy]
-  $IsChuchumFinished = 0  
-
-  # GET /lottos
+  
   # GET /lottos.json
   def index
-    @lottos = Lotto.all
-    if current_user && current_user.admin?
-      Lotto.all
-    else
-      redirect_to user_session_path
-    end
+    @lotto = Lotto.last
     
   end
 
@@ -48,6 +41,7 @@ class LottosController < ApplicationController
 
     if @lotto.winnum.to_i > VoteLog.count
       $winnerarray.append("ERROR! 응모자 수 < 당첨자 수")
+     
     
     else
       while @cnt<@lotto.winnum.to_i
@@ -59,12 +53,12 @@ class LottosController < ApplicationController
           $winnerarray.append(@dangchumID)
           @cnt = @cnt+1  
         end
-
       end
+      
     end    
 
-    $IsChuchumFinished = 1
-    $giveLottoToIndex = @lotto
+    
+
 
     respond_to do |format|
       if @lotto.save

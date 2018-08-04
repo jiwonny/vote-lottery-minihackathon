@@ -1,8 +1,6 @@
 <!--추첨 버튼 누르기 전에는 상단이 보이도록!-->
 
 <div class="container" id="timer">
-
-
   <!--타이머-->
   <div class="countdown">
     <ul id="example">
@@ -15,41 +13,24 @@
       <li class="seperator">:</li>
       <li><span id="seconds"></span><p class="seconds_text">Seconds</p></li> <br>
       <li class="title"> 남았습니다. </li> <br><br><br><br>
-      <li><button type="button" class="btn btn-outline-dark"><a href="/lottos/new"style="color:gray">페이스북 실시간 추첨 확인하러가기</button> </li>
+      <li><a href="/lottos/new"style="color:gray"><button type="button" class="btn btn-outline-dark">페이스북 실시간 추첨 확인하러가기</button></a></li>
     </ul>
   </div>
 
 </div>
 
+
 <!--추첨 버튼 이후에는 하단이 보이도록!-->
-<div class="container-fluid" id = "after-chuchum">    
-  <div class="row content">
-    
-    <div class="container">
-      <div class="titlel">당첨자 발표</div> 
-    </div>
+<%= render 'result'%>
 
-    <div class="col-8 col-md-10 col-center m-auto text-center" id="winnerbox">
-      <h4 class="lottitle"><br> 축하합니다 :) </h4>
-      
-      <% for n in 0..Lotto.where(id: Lotto.count).pluck(:winnum)[0].to_i %>
-          <%@tmpWinner = $winnerarray[n][0] %>
 
-          <%=puts "hi here!!", VoteLog.where(studentID: @tmpWinner).pluck(:image).to_s%>
+<!--에러페이지!-->
+<%= render 'resultError'%>
 
-          <%if VoteLog.where(studentID: @tmpWinner).pluck("image").to_s != "nil"%>
-            <p><%=link_to @tmpWinner, VoteLog.where(studentID: @tmpWinner).pluck(:image).to_s%></p>
-          <%else%>
-            <p><%=@tmpWinner+ "사진이 없습니다"%></p>
-          <%end%>
 
-      <% end %> 
-      
-      <p> 위 학우들께는 2-3일 내에 응모하신 번호로 문자드립니다. </p>
-    </div>
-
-  </div>
-</div>
+<!--화면 전환용 버튼-->
+<button type = "button" id = "pageToTime"></button>
+<button type = "button" id = "pageToResult"></button>
 
 <%# confetti 테스트 코드 %>
 <div class="container col-center" id="confetti">
@@ -66,6 +47,18 @@ canvas {
 
 </style>
 
+<!--페이지 전환용 버튼-->
+<script>
+  if ($IsChuchumFinished == 0){
+    document.getElementById("timer").style.display = "block"
+    document.getElementById("after-chuchum").style.display = "none"
+  } else if($IsChuchumFinished == 1){
+    document.getElementById("timer").style.display = "none"
+    document.getElementById("after-chuchum").style.display = "block"
+  } else{
+
+  }
+</script>
 
 
 <!--countdown용 js-->
@@ -175,3 +168,6 @@ var x = setInterval(function() {
 
   loop();
 </script>
+
+
+
