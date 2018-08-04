@@ -1,20 +1,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 
-<main></main>
-
 <a href="" class="scrollToTop footer__inner">Top</a>
-  <footer>
-  <div class="footer__inner">
+<footer>
+  <div class="footer__inner fixed-bottom">
     <div class="logo">Logo</div>
   </div>
 </footer>
 
-
-
 <script>
   var logoElement = $('footer .logo');
-
   $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
         $(logoElement).addClass('show');
@@ -32,7 +27,6 @@
                 $('.scrollToTop').fadeOut();
             }
         });
-
     //Click event to scroll to top
     $('.scrollToTop').click(function(){
         $('html, body').animate({scrollTop : 0},800);

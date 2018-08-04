@@ -22,15 +22,23 @@
 
   </head>
 
-  
-  <body>
-    <%= render "layouts/header" %>
-  
-    <%= yield %>
+    <body>
+      <%= render "layouts/header" %>  
+      <div id="navclickcover">
+        <%= yield %>
+        <br>
+        <br>
+        <%= render "layouts/footer" %>
+      </div>
+      <script>
 
-    <%= render "layouts/footer" %>
-    
-  </body>
+  $("#hambug").on("click", function(){
+    $("#navclickcover").toggleClass("cover")
+  }) 
+
+</script>
+    </body>
+  </div>
 </html>
 
 
