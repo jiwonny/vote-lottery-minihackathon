@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  
+  get '/hoowon2' => 'hoowon2#index'
+
+  resources :hoowons
+  get '/hoowons' => 'hoowon#index'
   get 'home/index'
   root 'vote_logs#index'
 
