@@ -178,9 +178,9 @@ figure i.fa-trash-alt{
 }
 
 .howto_bar{
-    width: 40px;
-    height: 1px;
-    background-color: #A13030;
+    width: 45px;
+    height: 2px;
+    background: -webkit-linear-gradient(rgba(157,147,247,1), rgba(117,176,247,1));
     margin-bottom: 10.5px;
 }
 
@@ -193,6 +193,7 @@ figure i.fa-trash-alt{
 }
 
 .howto_text_title{
+    font-family: 'NanumSquareRound';
     font-size: 20px;
 }
 
