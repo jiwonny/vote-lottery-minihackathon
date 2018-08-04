@@ -19,18 +19,40 @@
 
 </div>
 
-
 <!--추첨 버튼 이후에는 하단이 보이도록!-->
-<%= render 'result'%>
+<% if !$winnerarray.nil?%>
+  <%puts "$winner array nil???? : ", $winnerarray%>
+  <%= render 'result'%>
+<% end %>
+
+<!--화면 전환용 버튼, 관리자에게만 보이게-->
+  <%if current_user && current_user.admin?%>
+    <button onclick = "showTime()" type = "button" id = "pageToTime">시간 페이지 보기</button>
+    <button onclick = "showResult()" type = "button" id = "pageToResult">결과 페이지 띄우기</button>
+  <%end%>
 
 
-<!--에러페이지!-->
-<%= render 'resultError'%>
+<!--페이지 전환용 버튼-->
+<script> 
+  var timeButton = document.getElementById("pageToTime");
+  var resultButton = document.getElementById("pageToResult");
+
+  var timeSection = document.getElementById("timer");
+  var resultSection = document.getElementById("result");
+
+  function showTime(){
+    timeSection.style.display = "initial";
+    resultSection.style.display = "none";
+  };
+
+  function showResult(){
+    timeSection.style.display = "none";
+    resultSection.style.display = "initial";
+  };
+
+</script>
 
 
-<!--화면 전환용 버튼-->
-<button type = "button" id = "pageToTime"></button>
-<button type = "button" id = "pageToResult"></button>
 
 <%# confetti 테스트 코드 %>
 <div class="container col-center" id="confetti">
@@ -47,18 +69,6 @@ canvas {
 
 </style>
 
-<!--페이지 전환용 버튼-->
-<script>
-  if ($IsChuchumFinished == 0){
-    document.getElementById("timer").style.display = "block"
-    document.getElementById("after-chuchum").style.display = "none"
-  } else if($IsChuchumFinished == 1){
-    document.getElementById("timer").style.display = "none"
-    document.getElementById("after-chuchum").style.display = "block"
-  } else{
-
-  }
-</script>
 
 
 <!--countdown용 js-->

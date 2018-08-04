@@ -1,6 +1,7 @@
 class LottosController < ApplicationController
   before_action :set_lotto, only: [:show, :edit, :update, :destroy]
-  
+ 
+
   # GET /lottos.json
   def index
     @lotto = Lotto.last
@@ -34,6 +35,7 @@ class LottosController < ApplicationController
   def create
     @lotto = Lotto.new(lotto_params)
     
+    
     $winnerarray = []
     @totalNum = VoteLog.all.count
     @cnt = 0
@@ -56,6 +58,7 @@ class LottosController < ApplicationController
       end
       
     end    
+    
 
     
 
