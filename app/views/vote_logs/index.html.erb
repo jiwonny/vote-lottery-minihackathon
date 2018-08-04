@@ -25,18 +25,16 @@
         <%if countvar%3 == 2%>
           <figure class="snip1273 third_img">
             <%= image_tag vote_log.image , class: "vote_img"%>
-            <i class="far fa-trash-alt"></i>
-            <i class="far fa-edit"></i>
+            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, edit_vote_log_path(vote_log)  %>
           </figure>
-          
+
         <% else %>
+
           <figure class="snip1273">
             <%= image_tag vote_log.image , class: "vote_img"%>
-            <i class="far fa-trash-alt"></i>
-            <i class="far fa-edit"></i>
-
+            <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe, edit_vote_log_path(vote_log)  %>
           </figure>
-          
+
         <% end %>
         <% countvar = countvar + 1%>
     <% end %>
@@ -45,28 +43,21 @@
 
 
   <%#= paginate @vote_logs %>
-  
-  <%= form_tag(vote_logs_path, method: :get) do %>
-    <%= text_field_tag :studentID, params[:studentID], placeholder: "학번을 입력하세요" %>
-    <%= submit_tag 'Search', name: nil, class: "searchbtn" %>
-  <% end %>
+  <div class="searching">
+    <%= form_tag(vote_logs_path, method: :get) do %>
+      <%= text_field_tag :studentID, params[:studentID], placeholder: "학번을 입력하세요" %>
+      <%= submit_tag 'Search', name: nil, class: "searchbtn" %>
+    <% end %>
 
+  </div>
 </div>
 
 <script>
 
-  // var okay= document.querySelectorAll(".vote_img");
-
-  // for (var i = 0; i < okay.length; i++){
-  //   okay[i].onclick = function(idx) {
-  //     if(idx < okay.length) {
-  //       okay[idx].classList.toggle("experiment");}
-  //   }.bind(okay[i], i);
-  // }
-
-  $(".vote_img").click(function() {
-    $(this).toggleClass("experiment");
-  });
+    $(".vote_img").click(function() {
+      $(this).toggleClass("experiment");
+      $("i").toggleClass("after");
+    });
 
   function numberCounter(target_frame, target_number) {
     this.count = 0; this.diff = 0;
@@ -86,7 +77,7 @@
       this.target_frame.innerHTML = this.count.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   
       if(this.count < this.target_count) {
-          this.timer = setTimeout(function() { self.counter(); }, 800);
+          this.timer = setTimeout(function() { self.counter(); }, 300);
       } else {
           clearTimeout(this.timer);
       }

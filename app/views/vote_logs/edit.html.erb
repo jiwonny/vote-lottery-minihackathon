@@ -1,5 +1,19 @@
-<h1>응모 수정하기</h1>
+<p id="notice"><%= notice %></p>
 
-<%= render 'form', vote_log: @vote_log %>
+<%= link_to 'Destroy', @vote_log, class: "pass", method: :delete, data: {confirm: "Are you sure?"} %>
 
-<%= link_to '뒤로가기', vote_logs_path %>
+<%= link_to 'Back', vote_logs_path %>
+
+
+<script>
+  var pass = document.querySelector(".pass");
+    do{
+      var a = prompt("인증코드를 입력하세요");
+      if(a == '<%=@vote_log.password%>'){
+      }
+      else{
+        alert("다시 입력해주세요");
+      }
+    }while(a!='<%=@vote_log.password%>');
+
+</script>
