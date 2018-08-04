@@ -52,6 +52,10 @@ ActiveRecord::Schema.define(version: 20180803081608) do
     t.string   "title"
     t.text     "content"
     t.text     "content2"
+    t.string   "title2"
+    t.string   "title3"
+    t.text     "content3"
+    t.string   "image2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "image"
