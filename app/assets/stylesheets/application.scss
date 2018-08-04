@@ -399,7 +399,7 @@ footer {
     font-family: 'TmonMonsori';
     text-align: center;
     text-transform: uppercase;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
     transform: translateY(50px);
     opacity: 0;
@@ -450,3 +450,190 @@ footer {
   font-size: 13px;
   margin-bottom: 19px;
 }
+
+
+// 포스터 페이지 CSS
+ul {
+    list-style: none;
+    }
+    .poster_name {
+    font-size: 2.5rem;
+    margin-top: 7%;
+    }
+  .poster_image{
+    width: 55vw; 
+    height: 43.5vh; 
+    margin-top: 3%;
+  }
+  
+  .poster_footer{
+    height: 5%; 
+    background-color: #7D2222; 
+    position:relative;
+    font-size: 2rem;
+  }
+
+  .poster_font {
+    color: white;
+  }
+
+  .poster_intro {
+    font-size: 2rem;
+  }
+
+  .poster_bar {
+    margin-top: 10%; 
+    background-color: #7D2222; 
+    width: 10%; 
+    height: 0.35vh;
+  }
+  .poster_bar2 { 
+    margin-bottom: 10%;
+    background-color: #7D2222; 
+    width: 10%; 
+    height: 0.35vh;
+  }
+
+// 배너 페이지 CSS
+
+    .banner_intro {
+      font-size: 2rem;
+    }
+    .banner_image {
+      height: auto; 
+      width: 100%;
+    }
+    .banner_footer {
+      height: 5%; 
+      background-color: #7D2222; 
+      position: relative; 
+      margin-top: 7%;
+    }
+    
+    .banner_footer_edit {
+      color: white;
+    }
+
+    .banner_footer_delete {
+      color: white;
+    }
+
+    .banner_footer_back {
+      color: white;
+    }
+
+    .banner_bar0 {
+      background-color: #7D2222; 
+      width: 10%; 
+      height: 0.35vh;
+      margin-top: 7%;
+    }
+
+    .banner_bar1 {
+      background-color: #7D2222; 
+      width: 10%; 
+      height: 0.35vh;
+      margin-top: 7%;
+    }
+
+    .banner_bar2 {
+      background-color: #7D2222; 
+      width: 10%; 
+      height: 0.35vh;
+      margin-top: 7%;
+    }
+
+    .banner_bar3 {
+      background-color: #7D2222; 
+      width: 10%; 
+      height: 0.35vh;
+      margin-top: 7%;
+    }
+
+    .banner_intro {
+        font-size: 2rem;
+        margin-top: 3%;
+      }
+    .banner_image {
+        height: auto; 
+        width: 100%;
+      }
+      .banner_footer {
+        height: 5%; 
+        background-color: #7D2222; 
+        position: relative; 
+        margin-top: 7%;
+      }
+      
+      .banner_footer_edit {
+        color: white;
+        font-size: 1.5rem;
+      }
+  
+      .banner_footer_delete {
+        color: white;
+        font-size: 1.5rem;
+      }
+  
+      .banner_footer_back {
+        color: white;
+        font-size: 1.5rem;
+      }
+  
+      .banner_bar0 {
+        background-color: #7D2222; 
+        width: 10%; 
+        height: 0.35vh;
+        margin-top: 7%;
+      }
+  
+      .banner_bar1 {
+        background-color: #7D2222; 
+        width: 10%; 
+        height: 0.35vh;
+        margin-top: 7%;
+      }
+  
+      .banner_bar2 {
+        background-color: #7D2222; 
+        width: 10%; 
+        height: 0.35vh;
+        margin-top: 7%;
+      }
+  
+      .banner_bar3 {
+        background-color: #7D2222; 
+        width: 10%; 
+        height: 0.35vh; 
+        margin-top: 7%;
+      }
+  
+      .btn03 {
+        font-size: 2rem;
+        margin-top: 3%;
+      }
+  
+      .btn02 {
+        font-size: 2rem;
+        margin-top: 3%;
+      }
+  
+      .btn01 {
+        font-size: 2rem;
+        margin-top: 3%;
+      }
+  
+      .example03 {
+        display: none; 
+        font-size: 1.5rem;
+      }
+  
+      .example02 {
+        display: none; 
+        font-size: 1.5rem;
+      }
+  
+      .example01 {
+        display: none; 
+        font-size: 1.5rem;
+      }
