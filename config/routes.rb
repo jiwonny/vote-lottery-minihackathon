@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :routers
   resources :voters
   resources :lottos
   devise_for :admins
@@ -17,10 +18,7 @@ Rails.application.routes.draw do
   root 'home#index'   
   get '/faq' => 'home#faq'
 
-  
- 
-
-
+  get '/routers' => 'routers#index'
 
   post 'vote_logs/checkDouble' => 'vote_logs#checkDouble'
  

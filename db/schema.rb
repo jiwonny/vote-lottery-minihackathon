@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 20180803041654) do
     t.text     "content2"
   end
 
+  create_table "routers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "placename"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "school_dbs", force: :cascade do |t|
     t.string   "studentID"
     t.string   "name"
